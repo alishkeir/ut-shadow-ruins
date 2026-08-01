@@ -17,43 +17,43 @@ public class PlayerController2D : MonoBehaviour
     [SerializeField] private float coyoteTime = 0.2f;
 
     Rigidbody2D rb;
-    InputSystem_Actions inputActions;
+    PlayerInputActions playerInputActions;
 
     float coyoteTimeCounter;
     float moveAmount;
 
     void Awake()
     {
-        inputActions = new InputSystem_Actions();
+        playerInputActions = new PlayerInputActions();
         rb = GetComponent<Rigidbody2D>();
     }
 
     void OnEnable()
     {
         // enable the input actions
-        inputActions.Player.Enable();
+        playerInputActions.Player.Enable();
 
         // subscribe to the input actions
-        inputActions.Player.Move.performed += Move;
-        inputActions.Player.Jump.performed += Jump;
+        playerInputActions.Player.Move.performed += Move;
+        playerInputActions.Player.Jump.performed += Jump;
 
         // subscribe to the canceled events
-        inputActions.Player.Jump.canceled += Jump;
-        inputActions.Player.Move.canceled += Move;
+        playerInputActions.Player.Jump.canceled += Jump;
+        playerInputActions.Player.Move.canceled += Move;
     }
 
     void OnDisable()
     {
         // disable the input actions
-        inputActions.Player.Disable();
+        playerInputActions.Player.Disable();
 
         // unsubscribe from the input actions
-        inputActions.Player.Move.performed -= Move;
-        inputActions.Player.Jump.performed -= Jump;
+        playerInputActions.Player.Move.performed -= Move;
+        playerInputActions.Player.Jump.performed -= Jump;
 
         // unsubscribe from the canceled events
-        inputActions.Player.Jump.canceled -= Jump;
-        inputActions.Player.Move.canceled -= Move;
+        playerInputActions.Player.Jump.canceled -= Jump;
+        playerInputActions.Player.Move.canceled -= Move;
     }
 
     void FixedUpdate()

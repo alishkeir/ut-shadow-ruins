@@ -586,6 +586,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5792811997298441925, guid: 6f90d4a10cb1e71439d2c4a24c509536, type: 3}
+      propertyPath: m_Actions
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 3bec050a1d53a394d9a1871377606cf1, type: 3}
+    - target: {fileID: 5792811997298441925, guid: 6f90d4a10cb1e71439d2c4a24c509536, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5792811997298441925, guid: 6f90d4a10cb1e71439d2c4a24c509536, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5792811997298441925, guid: 6f90d4a10cb1e71439d2c4a24c509536, type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5792811997298441925, guid: 6f90d4a10cb1e71439d2c4a24c509536, type: 3}
+      propertyPath: m_NeverAutoSwitchControlSchemes
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6270451979315952813, guid: 6f90d4a10cb1e71439d2c4a24c509536, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
