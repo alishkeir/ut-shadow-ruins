@@ -32,11 +32,6 @@ public class PlayerController2D : MonoBehaviour
     float moveAmount;
     bool wasGrounded;
 
-    bool isRolling;
-    bool isDashing;
-
-
-
     void Awake()
     {
         playerInputActions = new PlayerInputActions();
@@ -105,12 +100,9 @@ public class PlayerController2D : MonoBehaviour
             coyoteTimeCounter -= Time.fixedDeltaTime;
         }
 
-        animationController.UpdateMovementAnimation(Mathf.Abs(rb.linearVelocity.x), rb.linearVelocity.y, grounded);
+        animationController.UpdateMovementAnimation(Mathf.Abs(rb.linearVelocityX), rb.linearVelocityY, grounded);
 
-        if (!wasGrounded && grounded)
-        {
-            animationController.PlayLand();
-        }
+        HandleMovementStateChange(wasGrounded);
 
         wasGrounded = grounded;
 
@@ -119,24 +111,26 @@ public class PlayerController2D : MonoBehaviour
 
     void Move(InputAction.CallbackContext context)
     {
-
-        if (playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Rolling || playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Dashing) return;
-
         // read the move (X only) amount from the input system
         moveAmount = context.ReadValue<Vector2>().x;
-
-        animationController.FlipSprite(moveAmount);
 
         if (moveAmount != 0)
         {
             facingDirection = Mathf.Sign(moveAmount);
+        }
+
+        if (playerStateMachine.IsLockedState()) return;
+
+        if (moveAmount != 0)
+        {
+            animationController.FlipSprite(facingDirection);
         }
     }
 
     void Jump(InputAction.CallbackContext context)
     {
 
-        if (playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Rolling || playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Dashing) return;
+        if (playerStateMachine.IsLockedState()) return;
 
         // if the player performed the jump action
         if (context.performed)
@@ -162,49 +156,73 @@ public class PlayerController2D : MonoBehaviour
 
     void Roll(InputAction.CallbackContext context)
     {
-
-        if (!Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundCheckLayerMask)) return;
-        if (rb.linearVelocityX == 0) return;
-        if (playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Rolling || playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Dashing) return;
+        if (CantPerformAction()) return;
 
         if (context.performed)
         {
             playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Rolling);
             rb.linearVelocity = new Vector2(facingDirection * rollSpeed, rb.linearVelocityY);
-            animationController.PlayRoll();
         }
     }
     void Dash(InputAction.CallbackContext context)
     {
-        if (!Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundCheckLayerMask)) return;
-        if (rb.linearVelocityX == 0) return;
-        if (playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Rolling || playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Dashing) return;
+        if (CantPerformAction()) return;
 
         if (context.performed)
         {
             playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Dashing);
             rb.linearVelocity = new Vector2(facingDirection * dashSpeed, rb.linearVelocityY);
-            animationController.PlayDash();
         }
     }
 
-    void StartRoll()
+    bool CantPerformAction()
     {
+        if (playerStateMachine.IsLockedState()) return true;
+        if (rb.linearVelocityX == 0) return true;
+        if (!Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundCheckLayerMask)) return true;
 
-
+        return false;
     }
 
-    void EndRoll()
+    void HandleRollOrDashEnd()
     {
+        if (Mathf.Abs(moveAmount) > 0.01f)
+        {
+            playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Running);
+            animationController.UpdateMovementAnimation(moveAmount, rb.linearVelocityY, true);
+
+        }
+        else
+        {
+            playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Idle);
+            animationController.UpdateMovementAnimation(0, rb.linearVelocityY, true);
+        }
+        animationController.FlipSprite(facingDirection);
     }
 
-    void StartDash()
-    {
 
-    }
-
-    void EndDash()
+    void HandleMovementStateChange(bool grounded)
     {
+        if (playerStateMachine.IsLockedState()) return;
+
+        if (!wasGrounded && grounded)
+        {
+            playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Landing);
+            return;
+        }
+
+        if (!grounded)
+        {
+            playerStateMachine.ChangeState(rb.linearVelocityY > 0 ? PlayerStateMachine.PlayerState.Jumping : PlayerStateMachine.PlayerState.Falling);
+        }
+        else if (Mathf.Abs(moveAmount) > 0.01f)
+        {
+            playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Running);
+        }
+        else
+        {
+            playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Idle);
+        }
     }
 
 

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerStateMachine : MonoBehaviour
@@ -13,8 +14,10 @@ public class PlayerStateMachine : MonoBehaviour
         Dashing,
     }
 
-
     public PlayerState CurrentState { get; private set; }
+
+    public event Action<PlayerState> OnStateChanged;
+
 
 
     void Awake()
@@ -22,9 +25,17 @@ public class PlayerStateMachine : MonoBehaviour
         CurrentState = PlayerState.Idle;
     }
 
-
     public void ChangeState(PlayerState newState)
     {
+        if (CurrentState == newState) return;
+
         CurrentState = newState;
+
+        OnStateChanged?.Invoke(CurrentState);
+    }
+
+    public bool IsLockedState()
+    {
+        return CurrentState == PlayerState.Rolling || CurrentState == PlayerState.Dashing;
     }
 }

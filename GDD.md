@@ -326,6 +326,8 @@ An ancient flying creature protecting the forgotten ruins. The boss constantly m
 
 - **Main Components:**
   - `PlayerController2D`
+  - `PlayerAnimationController`
+  - `PlayerStateMachine`
   - `PlayerCombatController`
   - `EnemyAIBase`
   - `BushMonster`
@@ -370,8 +372,8 @@ An ancient flying creature protecting the forgotten ruins. The boss constantly m
   - [ ] Implement movement mechanics:
     - [x] Variable jump height
     - [x] Coyote time
-    - [ ] Roll
-    - [ ] Dash
+    - [x] Roll
+    - [x] Dash
 
 - **Phase 2:**
   - [ ] Create sword combat system.
