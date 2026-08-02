@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController2D : MonoBehaviour
 {
+
     [Header("Player Movement")]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 12f;
@@ -16,16 +17,36 @@ public class PlayerController2D : MonoBehaviour
     [Tooltip("The amount of time the player can still jump after leaving the ground.")]
     [SerializeField] private float coyoteTime = 0.2f;
 
+
+    [Header("Animations")]
+    [SerializeField] private float rollSpeed = 8f;
+    [SerializeField] private float dashSpeed = 12f;
+
     Rigidbody2D rb;
     PlayerInputActions playerInputActions;
+    Animator animator;
+    SpriteRenderer spriteRenderer;
 
     float coyoteTimeCounter;
     float moveAmount;
+    bool wasGrounded;
+    bool isRolling;
+    bool isDashing;
+
+    private static readonly int speedHash = Animator.StringToHash("Speed");
+    private static readonly int velocityYHash = Animator.StringToHash("VelocityY");
+    private static readonly int groundedHash = Animator.StringToHash("Grounded");
+    private static readonly int landHash = Animator.StringToHash("Land");
+    private static readonly int rollHash = Animator.StringToHash("Roll");
+    private static readonly int dashHash = Animator.StringToHash("Dash");
+
 
     void Awake()
     {
         playerInputActions = new PlayerInputActions();
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void OnEnable()
@@ -36,10 +57,14 @@ public class PlayerController2D : MonoBehaviour
         // subscribe to the input actions
         playerInputActions.Player.Move.performed += Move;
         playerInputActions.Player.Jump.performed += Jump;
+        playerInputActions.Player.Roll.performed += Roll;
+        playerInputActions.Player.Dash.performed += Dash;
 
         // subscribe to the canceled events
         playerInputActions.Player.Jump.canceled += Jump;
         playerInputActions.Player.Move.canceled += Move;
+        playerInputActions.Player.Roll.canceled += Roll;
+        playerInputActions.Player.Dash.canceled += Dash;
     }
 
     void OnDisable()
@@ -50,20 +75,31 @@ public class PlayerController2D : MonoBehaviour
         // unsubscribe from the input actions
         playerInputActions.Player.Move.performed -= Move;
         playerInputActions.Player.Jump.performed -= Jump;
+        playerInputActions.Player.Roll.performed -= Roll;
+        playerInputActions.Player.Dash.performed -= Dash;
 
         // unsubscribe from the canceled events
         playerInputActions.Player.Jump.canceled -= Jump;
         playerInputActions.Player.Move.canceled -= Move;
+        playerInputActions.Player.Roll.canceled -= Roll;
+        playerInputActions.Player.Dash.canceled -= Dash;
     }
 
     void FixedUpdate()
     {
+
+        // check if the player is on the ground
+        bool grounded = Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundCheckLayerMask);
+
         // move the player with the current move amount we get from the input system
-        rb.linearVelocity = new Vector2(moveAmount * moveSpeed, rb.linearVelocityY);
+        if (!isRolling && !isDashing)
+        {
+            rb.linearVelocity = new Vector2(moveAmount * moveSpeed, rb.linearVelocityY);
+        }
 
         // coyote time
         // if the player is on the ground, reset the coyote time counter
-        if (Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundCheckLayerMask))
+        if (grounded)
         {
             coyoteTimeCounter = coyoteTime;
         }
@@ -72,17 +108,44 @@ public class PlayerController2D : MonoBehaviour
         {
             coyoteTimeCounter -= Time.fixedDeltaTime;
         }
+
+        animator.SetBool(groundedHash, grounded);
+        animator.SetFloat(speedHash, Mathf.Abs(rb.linearVelocity.x));
+        animator.SetFloat(velocityYHash, rb.linearVelocity.y);
+
+        if (!wasGrounded && grounded)
+        {
+            animator.SetTrigger(landHash);
+        }
+
+        wasGrounded = grounded;
+
     }
 
 
     void Move(InputAction.CallbackContext context)
     {
+
+        if (isRolling || isDashing) return;
+
         // read the move (X only) amount from the input system
         moveAmount = context.ReadValue<Vector2>().x;
+
+        if (moveAmount > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else if (moveAmount < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
     }
 
     void Jump(InputAction.CallbackContext context)
     {
+
+        if (isRolling || isDashing) return;
+
         // if the player performed the jump action
         if (context.performed)
         {
@@ -104,6 +167,68 @@ public class PlayerController2D : MonoBehaviour
             }
         }
     }
+
+    void Roll(InputAction.CallbackContext context)
+    {
+
+        if (!Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundCheckLayerMask)) return;
+        if (rb.linearVelocityX == 0) return;
+        if (isDashing || isRolling) return;
+
+        if (context.performed)
+        {
+            animator.SetTrigger(rollHash);
+        }
+    }
+    void Dash(InputAction.CallbackContext context)
+    {
+        if (!Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundCheckLayerMask)) return;
+        if (rb.linearVelocityX == 0) return;
+        if (isDashing || isRolling) return;
+
+        if (context.performed)
+        {
+            animator.SetTrigger(dashHash);
+        }
+    }
+
+    void StartRoll()
+    {
+        isRolling = true;
+
+        rb.linearVelocity = new Vector2(
+            spriteRenderer.flipX ? -rollSpeed : rollSpeed,
+            rb.linearVelocityY
+        );
+
+        Debug.Log("Start Roll");
+    }
+
+    void EndRoll()
+    {
+        isRolling = false;
+        Debug.Log("End Roll");
+    }
+
+    void StartDash()
+    {
+        isDashing = true;
+
+        rb.linearVelocity = new Vector2(
+            spriteRenderer.flipX ? -dashSpeed : dashSpeed,
+            rb.linearVelocityY
+        );
+
+        Debug.Log("Start Dash");
+    }
+
+    void EndDash()
+    {
+        isDashing = false;
+        Debug.Log("End Dash");
+    }
+
+
     // draw gizmos for the ground check // visible only in the editor
     private void OnDrawGizmosSelected()
     {
