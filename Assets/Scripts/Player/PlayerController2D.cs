@@ -24,29 +24,25 @@ public class PlayerController2D : MonoBehaviour
 
     Rigidbody2D rb;
     PlayerInputActions playerInputActions;
-    Animator animator;
-    SpriteRenderer spriteRenderer;
+    PlayerAnimationController animationController;
+    PlayerStateMachine playerStateMachine;
 
+    float facingDirection = 1f;
     float coyoteTimeCounter;
     float moveAmount;
     bool wasGrounded;
+
     bool isRolling;
     bool isDashing;
 
-    private static readonly int speedHash = Animator.StringToHash("Speed");
-    private static readonly int velocityYHash = Animator.StringToHash("VelocityY");
-    private static readonly int groundedHash = Animator.StringToHash("Grounded");
-    private static readonly int landHash = Animator.StringToHash("Land");
-    private static readonly int rollHash = Animator.StringToHash("Roll");
-    private static readonly int dashHash = Animator.StringToHash("Dash");
 
 
     void Awake()
     {
         playerInputActions = new PlayerInputActions();
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        animationController = GetComponent<PlayerAnimationController>();
+        playerStateMachine = GetComponent<PlayerStateMachine>();
     }
 
     void OnEnable()
@@ -92,7 +88,7 @@ public class PlayerController2D : MonoBehaviour
         bool grounded = Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundCheckLayerMask);
 
         // move the player with the current move amount we get from the input system
-        if (!isRolling && !isDashing)
+        if (playerStateMachine.CurrentState != PlayerStateMachine.PlayerState.Rolling && playerStateMachine.CurrentState != PlayerStateMachine.PlayerState.Dashing)
         {
             rb.linearVelocity = new Vector2(moveAmount * moveSpeed, rb.linearVelocityY);
         }
@@ -109,13 +105,11 @@ public class PlayerController2D : MonoBehaviour
             coyoteTimeCounter -= Time.fixedDeltaTime;
         }
 
-        animator.SetBool(groundedHash, grounded);
-        animator.SetFloat(speedHash, Mathf.Abs(rb.linearVelocity.x));
-        animator.SetFloat(velocityYHash, rb.linearVelocity.y);
+        animationController.UpdateMovementAnimation(Mathf.Abs(rb.linearVelocity.x), rb.linearVelocity.y, grounded);
 
         if (!wasGrounded && grounded)
         {
-            animator.SetTrigger(landHash);
+            animationController.PlayLand();
         }
 
         wasGrounded = grounded;
@@ -126,25 +120,23 @@ public class PlayerController2D : MonoBehaviour
     void Move(InputAction.CallbackContext context)
     {
 
-        if (isRolling || isDashing) return;
+        if (playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Rolling || playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Dashing) return;
 
         // read the move (X only) amount from the input system
         moveAmount = context.ReadValue<Vector2>().x;
 
-        if (moveAmount > 0)
+        animationController.FlipSprite(moveAmount);
+
+        if (moveAmount != 0)
         {
-            spriteRenderer.flipX = false;
-        }
-        else if (moveAmount < 0)
-        {
-            spriteRenderer.flipX = true;
+            facingDirection = Mathf.Sign(moveAmount);
         }
     }
 
     void Jump(InputAction.CallbackContext context)
     {
 
-        if (isRolling || isDashing) return;
+        if (playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Rolling || playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Dashing) return;
 
         // if the player performed the jump action
         if (context.performed)
@@ -173,59 +165,46 @@ public class PlayerController2D : MonoBehaviour
 
         if (!Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundCheckLayerMask)) return;
         if (rb.linearVelocityX == 0) return;
-        if (isDashing || isRolling) return;
+        if (playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Rolling || playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Dashing) return;
 
         if (context.performed)
         {
-            animator.SetTrigger(rollHash);
+            playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Rolling);
+            rb.linearVelocity = new Vector2(facingDirection * rollSpeed, rb.linearVelocityY);
+            animationController.PlayRoll();
         }
     }
     void Dash(InputAction.CallbackContext context)
     {
         if (!Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundCheckLayerMask)) return;
         if (rb.linearVelocityX == 0) return;
-        if (isDashing || isRolling) return;
+        if (playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Rolling || playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Dashing) return;
 
         if (context.performed)
         {
-            animator.SetTrigger(dashHash);
+            playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Dashing);
+            rb.linearVelocity = new Vector2(facingDirection * dashSpeed, rb.linearVelocityY);
+            animationController.PlayDash();
         }
     }
 
     void StartRoll()
     {
-        isRolling = true;
 
-        rb.linearVelocity = new Vector2(
-            spriteRenderer.flipX ? -rollSpeed : rollSpeed,
-            rb.linearVelocityY
-        );
 
-        Debug.Log("Start Roll");
     }
 
     void EndRoll()
     {
-        isRolling = false;
-        Debug.Log("End Roll");
     }
 
     void StartDash()
     {
-        isDashing = true;
 
-        rb.linearVelocity = new Vector2(
-            spriteRenderer.flipX ? -dashSpeed : dashSpeed,
-            rb.linearVelocityY
-        );
-
-        Debug.Log("Start Dash");
     }
 
     void EndDash()
     {
-        isDashing = false;
-        Debug.Log("End Dash");
     }
 
 
