@@ -1,19 +1,22 @@
 fileFormatVersion: 2
-guid: cecb724fe7a2dbc4d8dc07f1167ba4f3
+guid: e7c0b70ac1734e44bb22059d58eb512f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6220260897284899744
-    second: Dashing_KG_1_0
+      213: 3789102661418848845
+    second: Attack_KG_4_0
   - first:
-      213: 8766439274140364807
-    second: Dashing_KG_1_1
+      213: 7905210761228710795
+    second: Attack_KG_4_1
   - first:
-      213: 3465546602957786791
-    second: Dashing_KG_1_2
+      213: 2536076328739579609
+    second: Attack_KG_4_2
   - first:
-      213: 3800629555566062716
-    second: Dashing_KG_1_3
+      213: 1065427937741400059
+    second: Attack_KG_4_3
+  - first:
+      213: 5226953752558912099
+    second: Attack_KG_4_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -135,13 +138,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dashing_KG_1_0
+      name: Attack_KG_4_0
       rect:
         serializedVersion: 2
-        x: 16
+        x: 6
         y: 0
-        width: 52
-        height: 55
+        width: 64
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,63 +153,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0a34be8645ec25650800000000000000
-      internalID: 6220260897284899744
+      spriteID: d429b578bc8959430800000000000000
+      internalID: 3789102661418848845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dashing_KG_1_1
+      name: Attack_KG_4_1
       rect:
         serializedVersion: 2
-        x: 119
+        x: 103
         y: 0
-        width: 51
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7007b20c216a8a970800000000000000
-      internalID: 8766439274140364807
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dashing_KG_1_2
-      rect:
-        serializedVersion: 2
-        x: 205
-        y: 0
-        width: 61
-        height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7ae4cdd2648181030800000000000000
-      internalID: 3465546602957786791
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dashing_KG_1_3
-      rect:
-        serializedVersion: 2
-        x: 309
-        y: 0
-        width: 61
+        width: 75
         height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -216,8 +175,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c7cad56b17c8eb430800000000000000
-      internalID: 3800629555566062716
+      spriteID: b83f1a1cd43f4bd60800000000000000
+      internalID: 7905210761228710795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_KG_4_2
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 0
+        width: 87
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d6acc9fbf3f13320800000000000000
+      internalID: 2536076328739579609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_KG_4_3
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 0
+        width: 68
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf76ad2801929ce00800000000000000
+      internalID: 1065427937741400059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_KG_4_4
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3624bae8ebed98840800000000000000
+      internalID: 5226953752558912099
       vertices: []
       indices: 
       edges: []
@@ -236,10 +261,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Dashing_KG_1_0: 6220260897284899744
-      Dashing_KG_1_1: 8766439274140364807
-      Dashing_KG_1_2: 3465546602957786791
-      Dashing_KG_1_3: 3800629555566062716
+      Attack_KG_4_0: 3789102661418848845
+      Attack_KG_4_1: 7905210761228710795
+      Attack_KG_4_2: 2536076328739579609
+      Attack_KG_4_3: 1065427937741400059
+      Attack_KG_4_4: 5226953752558912099
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

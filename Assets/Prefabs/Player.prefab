@@ -47,6 +47,8 @@ GameObject:
   - component: {fileID: 5472274184619532830}
   - component: {fileID: 2030923030859487715}
   - component: {fileID: 1377800643206185469}
+  - component: {fileID: 7199374132437299812}
+  - component: {fileID: 7277199893276579836}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -279,3 +281,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b80b48ee84883469a80f5829697a17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimationController
+--- !u!114 &7199374132437299812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8709905122611923319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c7080ff09e4f1a45986debdc0fc8162, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStateMachine
+--- !u!114 &7277199893276579836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8709905122611923319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6495fa58a59d674fa414eef1234d3bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCombatController
+  comboResetTime: 0.5

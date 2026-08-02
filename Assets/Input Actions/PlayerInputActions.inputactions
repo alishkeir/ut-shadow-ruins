@@ -59,15 +59,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Pause",
-                    "type": "Button",
-                    "id": "f6ebbc51-4bd1-4c91-bca3-5501411ee330",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -268,10 +259,27 @@
                     "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "fd4931cc-75dc-481c-a44c-008cf8605f2e",
+            "actions": [
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "4e709e6e-bc82-48ba-a6ea-41b69497e23c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
                 {
                     "name": "",
-                    "id": "a5fa9102-39bd-45c7-8ae6-5de9844aa198",
+                    "id": "78c818e6-ce2e-4566-965f-a61daf5e06d0",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
@@ -282,7 +290,7 @@
                 },
                 {
                     "name": "",
-                    "id": "93a7a245-5c2b-46f6-8981-22eacbbf95e3",
+                    "id": "63423c00-2932-41f6-b4b9-59fb1833c18d",
                     "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",

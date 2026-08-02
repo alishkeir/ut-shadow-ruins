@@ -26,8 +26,10 @@ public class PlayerController2D : MonoBehaviour
     PlayerInputActions playerInputActions;
     PlayerAnimationController animationController;
     PlayerStateMachine playerStateMachine;
+    Animator animator;
 
-    float facingDirection = 1f;
+    private static readonly int animatorNoComboHash = Animator.StringToHash("NoCombo");
+
     float coyoteTimeCounter;
     float moveAmount;
     bool wasGrounded;
@@ -38,6 +40,7 @@ public class PlayerController2D : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animationController = GetComponent<PlayerAnimationController>();
         playerStateMachine = GetComponent<PlayerStateMachine>();
+        animator = GetComponent<Animator>();
     }
 
     void OnEnable()
@@ -83,7 +86,7 @@ public class PlayerController2D : MonoBehaviour
         bool grounded = Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundCheckLayerMask);
 
         // move the player with the current move amount we get from the input system
-        if (playerStateMachine.CurrentState != PlayerStateMachine.PlayerState.Rolling && playerStateMachine.CurrentState != PlayerStateMachine.PlayerState.Dashing)
+        if (!playerStateMachine.IsLockedState())
         {
             rb.linearVelocity = new Vector2(moveAmount * moveSpeed, rb.linearVelocityY);
         }
@@ -116,14 +119,14 @@ public class PlayerController2D : MonoBehaviour
 
         if (moveAmount != 0)
         {
-            facingDirection = Mathf.Sign(moveAmount);
+            playerStateMachine.SetFacingDirection(Mathf.Sign(moveAmount));
         }
 
         if (playerStateMachine.IsLockedState()) return;
 
         if (moveAmount != 0)
         {
-            animationController.FlipSprite(facingDirection);
+            animationController.FlipSprite();
         }
     }
 
@@ -131,6 +134,8 @@ public class PlayerController2D : MonoBehaviour
     {
 
         if (playerStateMachine.IsLockedState()) return;
+
+        if (!Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundCheckLayerMask)) return;
 
         // if the player performed the jump action
         if (context.performed)
@@ -156,12 +161,12 @@ public class PlayerController2D : MonoBehaviour
 
     void Roll(InputAction.CallbackContext context)
     {
-        if (CantPerformAction()) return;
+        if (playerStateMachine.IsLockedState()) return;
 
         if (context.performed)
         {
             playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Rolling);
-            rb.linearVelocity = new Vector2(facingDirection * rollSpeed, rb.linearVelocityY);
+            rb.linearVelocity = new Vector2(playerStateMachine.FacingDirection * rollSpeed, rb.linearVelocityY);
         }
     }
     void Dash(InputAction.CallbackContext context)
@@ -171,7 +176,7 @@ public class PlayerController2D : MonoBehaviour
         if (context.performed)
         {
             playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Dashing);
-            rb.linearVelocity = new Vector2(facingDirection * dashSpeed, rb.linearVelocityY);
+            rb.linearVelocity = new Vector2(playerStateMachine.FacingDirection * dashSpeed, rb.linearVelocityY);
         }
     }
 
@@ -180,12 +185,24 @@ public class PlayerController2D : MonoBehaviour
         if (playerStateMachine.IsLockedState()) return true;
         if (rb.linearVelocityX == 0) return true;
         if (!Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundCheckLayerMask)) return true;
-
         return false;
     }
 
     void HandleRollOrDashEnd()
     {
+        // Reset NoCombo so the Any State → Fall transition (which requires NoCombo = true) is allowed to fire while the player is still in the air.
+        animator.SetBool(animatorNoComboHash, true);
+
+        // if the player is still in the air when the roll/dash ends, keep the falling instead of switching to Idle/Running.
+        bool grounded = Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundCheckLayerMask);
+        if (!grounded)
+        {
+            playerStateMachine.ChangeState(rb.linearVelocityY > 0
+                ? PlayerStateMachine.PlayerState.Jumping
+                : PlayerStateMachine.PlayerState.Falling);
+            return;
+        }
+
         if (Mathf.Abs(moveAmount) > 0.01f)
         {
             playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Running);
@@ -197,12 +214,21 @@ public class PlayerController2D : MonoBehaviour
             playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Idle);
             animationController.UpdateMovementAnimation(0, rb.linearVelocityY, true);
         }
-        animationController.FlipSprite(facingDirection);
+
+        animationController.FlipSprite();
     }
 
 
     void HandleMovementStateChange(bool grounded)
     {
+        // rolling state to end early when the player lands, since
+        if (playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Rolling
+            && grounded)
+        {
+            HandleRollOrDashEnd();
+            return;
+        }
+
         if (playerStateMachine.IsLockedState()) return;
 
         if (!wasGrounded && grounded)

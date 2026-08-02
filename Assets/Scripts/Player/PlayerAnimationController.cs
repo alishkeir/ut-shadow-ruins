@@ -48,15 +48,20 @@ public class PlayerAnimationController : MonoBehaviour
         this.grounded = grounded;
     }
 
+    private static readonly int noComboHash = Animator.StringToHash("NoCombo");
+
     void UpdateAnimation(PlayerStateMachine.PlayerState state)
     {
         switch (state)
         {
             case PlayerStateMachine.PlayerState.Rolling:
+                // set NoCombo to false so the Any State → Fall transition (which requires NoCombo = true) does not interrupt the roll while the player is still in the air.
+                animator.SetBool(noComboHash, false);
                 animator.SetTrigger(rollHash);
                 break;
 
             case PlayerStateMachine.PlayerState.Dashing:
+                animator.SetBool(noComboHash, false);
                 animator.SetTrigger(dashHash);
                 break;
 
@@ -68,12 +73,12 @@ public class PlayerAnimationController : MonoBehaviour
     }
 
 
-    public void FlipSprite(float direction)
+    public void FlipSprite()
     {
-        if (direction > 0)
+        if (playerStateMachine.FacingDirection > 0)
             spriteRenderer.flipX = false;
 
-        else if (direction < 0)
+        else if (playerStateMachine.FacingDirection < 0)
             spriteRenderer.flipX = true;
     }
 }

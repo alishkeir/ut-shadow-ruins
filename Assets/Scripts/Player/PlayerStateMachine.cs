@@ -12,9 +12,12 @@ public class PlayerStateMachine : MonoBehaviour
         Landing,
         Rolling,
         Dashing,
+        Attacking,
     }
 
     public PlayerState CurrentState { get; private set; }
+
+    public float FacingDirection { get; private set; } = 1f;
 
     public event Action<PlayerState> OnStateChanged;
 
@@ -36,6 +39,13 @@ public class PlayerStateMachine : MonoBehaviour
 
     public bool IsLockedState()
     {
-        return CurrentState == PlayerState.Rolling || CurrentState == PlayerState.Dashing;
+        return CurrentState == PlayerState.Rolling
+            || CurrentState == PlayerState.Dashing
+            || CurrentState == PlayerState.Attacking;
+    }
+
+    public void SetFacingDirection(float direction)
+    {
+        FacingDirection = direction;
     }
 }
