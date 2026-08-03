@@ -1,25 +1,28 @@
 fileFormatVersion: 2
-guid: e56aa9efb17298d4fb3dc869a9759d9a
+guid: 1dc8d890c6f910e49bde10594ecaf20c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8345753331616478382
-    second: Attack_KG_2_0
+      213: -1422868305549830651
+    second: Shield Up_0
   - first:
-      213: -5515574048984974227
-    second: Attack_KG_2_1
+      213: -2412438441331181439
+    second: Shield Up_1
   - first:
-      213: -3878741669849815595
-    second: Attack_KG_2_2
+      213: -1933026748854229670
+    second: Shield Up_2
   - first:
-      213: -777060946598943158
-    second: Attack_KG_2_3
+      213: 192900662749994954
+    second: Shield Up_3
   - first:
-      213: -4728083257135438555
-    second: Attack_KG_2_4
+      213: -8738240305255826837
+    second: Shield Up_4
   - first:
-      213: -60248966097534883
-    second: Attack_KG_2_5
+      213: 4714480707611330521
+    second: Shield Up_5
+  - first:
+      213: -6639565350938899984
+    second: Shield Up_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -141,122 +144,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Attack_KG_2_0
+      name: Shield Up_0
       rect:
         serializedVersion: 2
-        x: 19
+        x: 10
         y: 0
-        width: 49
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 25b87f5009ded2c80800000000000000
-      internalID: -8345753331616478382
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_KG_2_1
-      rect:
-        serializedVersion: 2
-        x: 108
-        y: 0
-        width: 60
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d6c33ed00aeb473b0800000000000000
-      internalID: -5515574048984974227
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_KG_2_2
-      rect:
-        serializedVersion: 2
-        x: 212
-        y: 0
-        width: 89
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5d5a8117001fb2ac0800000000000000
-      internalID: -3878741669849815595
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_KG_2_3
-      rect:
-        serializedVersion: 2
-        x: 322
-        y: 0
-        width: 79
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a462425af235735f0800000000000000
-      internalID: -777060946598943158
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_KG_2_4
-      rect:
-        serializedVersion: 2
-        x: 434
-        y: 0
-        width: 67
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 52568fdf359726eb0800000000000000
-      internalID: -4728083257135438555
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_KG_2_5
-      rect:
-        serializedVersion: 2
-        x: 531
-        y: 0
-        width: 40
+        width: 58
         height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -266,8 +159,140 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d500ca172e3f92ff0800000000000000
-      internalID: -60248966097534883
+      spriteID: 5065a8590d4f04ce0800000000000000
+      internalID: -1422868305549830651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shield Up_1
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 0
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18835fde40c458ed0800000000000000
+      internalID: -2412438441331181439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shield Up_2
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 0
+        width: 65
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a55273dd9628c25e0800000000000000
+      internalID: -1933026748854229670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shield Up_3
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 0
+        width: 60
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acf962871225da200800000000000000
+      internalID: 192900662749994954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shield Up_4
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 0
+        width: 56
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6ab9335db88bb680800000000000000
+      internalID: -8738240305255826837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shield Up_5
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 60
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d70b95a9333d6140800000000000000
+      internalID: 4714480707611330521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shield Up_6
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 0
+        width: 55
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f98b42cd768bd3a0800000000000000
+      internalID: -6639565350938899984
       vertices: []
       indices: 
       edges: []
@@ -286,12 +311,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Attack_KG_2_0: -8345753331616478382
-      Attack_KG_2_1: -5515574048984974227
-      Attack_KG_2_2: -3878741669849815595
-      Attack_KG_2_3: -777060946598943158
-      Attack_KG_2_4: -4728083257135438555
-      Attack_KG_2_5: -60248966097534883
+      Shield Up_0: -1422868305549830651
+      Shield Up_1: -2412438441331181439
+      Shield Up_2: -1933026748854229670
+      Shield Up_3: 192900662749994954
+      Shield Up_4: -8738240305255826837
+      Shield Up_5: 4714480707611330521
+      Shield Up_6: -6639565350938899984
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

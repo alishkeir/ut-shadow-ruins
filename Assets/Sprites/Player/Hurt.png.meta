@@ -1,25 +1,19 @@
 fileFormatVersion: 2
-guid: e56aa9efb17298d4fb3dc869a9759d9a
+guid: ff7350d8dba311f4dbd95399eb551b8c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8345753331616478382
-    second: Attack_KG_2_0
+      213: -7075923384951535840
+    second: Hirt_0
   - first:
-      213: -5515574048984974227
-    second: Attack_KG_2_1
+      213: 3628900980412264989
+    second: Hirt_1
   - first:
-      213: -3878741669849815595
-    second: Attack_KG_2_2
+      213: -5212931828772544473
+    second: Hirt_2
   - first:
-      213: -777060946598943158
-    second: Attack_KG_2_3
-  - first:
-      213: -4728083257135438555
-    second: Attack_KG_2_4
-  - first:
-      213: -60248966097534883
-    second: Attack_KG_2_5
+      213: 2966378883334872354
+    second: Hirt_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -141,12 +135,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Attack_KG_2_0
+      name: Hirt_0
       rect:
         serializedVersion: 2
-        x: 19
+        x: 28
         y: 0
-        width: 49
+        width: 41
         height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -156,19 +150,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 25b87f5009ded2c80800000000000000
-      internalID: -8345753331616478382
+      spriteID: 0278516db254dcd90800000000000000
+      internalID: -7075923384951535840
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_KG_2_1
+      name: Hirt_1
       rect:
         serializedVersion: 2
-        x: 108
+        x: 104
         y: 0
-        width: 60
+        width: 59
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d123a8607327c5230800000000000000
+      internalID: 3628900980412264989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hirt_2
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 0
+        width: 48
         height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -178,85 +194,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d6c33ed00aeb473b0800000000000000
-      internalID: -5515574048984974227
+      spriteID: 7206fabfe12f7a7b0800000000000000
+      internalID: -5212931828772544473
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_KG_2_2
+      name: Hirt_3
       rect:
         serializedVersion: 2
-        x: 212
+        x: 326
         y: 0
-        width: 89
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5d5a8117001fb2ac0800000000000000
-      internalID: -3878741669849815595
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_KG_2_3
-      rect:
-        serializedVersion: 2
-        x: 322
-        y: 0
-        width: 79
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a462425af235735f0800000000000000
-      internalID: -777060946598943158
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_KG_2_4
-      rect:
-        serializedVersion: 2
-        x: 434
-        y: 0
-        width: 67
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 52568fdf359726eb0800000000000000
-      internalID: -4728083257135438555
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_KG_2_5
-      rect:
-        serializedVersion: 2
-        x: 531
-        y: 0
-        width: 40
+        width: 41
         height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -266,8 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d500ca172e3f92ff0800000000000000
-      internalID: -60248966097534883
+      spriteID: 22d156ab0e1ba2920800000000000000
+      internalID: 2966378883334872354
       vertices: []
       indices: 
       edges: []
@@ -286,12 +236,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Attack_KG_2_0: -8345753331616478382
-      Attack_KG_2_1: -5515574048984974227
-      Attack_KG_2_2: -3878741669849815595
-      Attack_KG_2_3: -777060946598943158
-      Attack_KG_2_4: -4728083257135438555
-      Attack_KG_2_5: -60248966097534883
+      Hirt_0: -7075923384951535840
+      Hirt_1: 3628900980412264989
+      Hirt_2: -5212931828772544473
+      Hirt_3: 2966378883334872354
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

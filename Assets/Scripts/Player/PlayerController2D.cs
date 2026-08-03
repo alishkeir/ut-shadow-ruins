@@ -32,7 +32,6 @@ public class PlayerController2D : MonoBehaviour
 
     float coyoteTimeCounter;
     float moveAmount;
-    bool wasGrounded;
 
     void Awake()
     {
@@ -103,11 +102,9 @@ public class PlayerController2D : MonoBehaviour
             coyoteTimeCounter -= Time.fixedDeltaTime;
         }
 
+        HandleMovementStateChange();
+
         animationController.UpdateMovementAnimation(Mathf.Abs(rb.linearVelocityX), rb.linearVelocityY, grounded);
-
-        HandleMovementStateChange(wasGrounded);
-
-        wasGrounded = grounded;
 
     }
 
@@ -161,7 +158,7 @@ public class PlayerController2D : MonoBehaviour
 
     void Roll(InputAction.CallbackContext context)
     {
-        if (playerStateMachine.IsLockedState()) return;
+        if (CantPerformAction()) return;
 
         if (context.performed)
         {
@@ -180,7 +177,7 @@ public class PlayerController2D : MonoBehaviour
         }
     }
 
-    bool CantPerformAction()
+    public bool CantPerformAction()
     {
         if (playerStateMachine.IsLockedState()) return true;
         if (rb.linearVelocityX == 0) return true;
@@ -219,23 +216,11 @@ public class PlayerController2D : MonoBehaviour
     }
 
 
-    void HandleMovementStateChange(bool grounded)
+    void HandleMovementStateChange()
     {
-        // rolling state to end early when the player lands, since
-        if (playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Rolling
-            && grounded)
-        {
-            HandleRollOrDashEnd();
-            return;
-        }
-
         if (playerStateMachine.IsLockedState()) return;
 
-        if (!wasGrounded && grounded)
-        {
-            playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Landing);
-            return;
-        }
+        bool grounded = Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundCheckLayerMask);
 
         if (!grounded)
         {

@@ -1,25 +1,22 @@
 fileFormatVersion: 2
-guid: e56aa9efb17298d4fb3dc869a9759d9a
+guid: 544d9679e2d515c4ea2bdc209c254d5d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8345753331616478382
-    second: Attack_KG_2_0
+      213: -3782302418011684980
+    second: Parry_0
   - first:
-      213: -5515574048984974227
-    second: Attack_KG_2_1
+      213: -7581343843245608386
+    second: Parry_1
   - first:
-      213: -3878741669849815595
-    second: Attack_KG_2_2
+      213: -4698449387721077818
+    second: Parry_2
   - first:
-      213: -777060946598943158
-    second: Attack_KG_2_3
+      213: 3113858548951103542
+    second: Parry_3
   - first:
-      213: -4728083257135438555
-    second: Attack_KG_2_4
-  - first:
-      213: -60248966097534883
-    second: Attack_KG_2_5
+      213: -5395038850066330896
+    second: Parry_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -141,35 +138,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Attack_KG_2_0
+      name: Parry_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 0
-        width: 49
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 25b87f5009ded2c80800000000000000
-      internalID: -8345753331616478382
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_KG_2_1
-      rect:
-        serializedVersion: 2
-        x: 108
+        x: 11
         y: 0
         width: 60
-        height: 61
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d6c33ed00aeb473b0800000000000000
-      internalID: -5515574048984974227
+      spriteID: c8fff458dff828bc0800000000000000
+      internalID: -3782302418011684980
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_KG_2_2
+      name: Parry_1
       rect:
         serializedVersion: 2
-        x: 212
+        x: 111
         y: 0
-        width: 89
-        height: 61
+        width: 63
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,41 +175,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5d5a8117001fb2ac0800000000000000
-      internalID: -3878741669849815595
+      spriteID: e32304731f7a9c690800000000000000
+      internalID: -7581343843245608386
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_KG_2_3
+      name: Parry_2
       rect:
         serializedVersion: 2
-        x: 322
+        x: 210
         y: 0
-        width: 79
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a462425af235735f0800000000000000
-      internalID: -777060946598943158
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_KG_2_4
-      rect:
-        serializedVersion: 2
-        x: 434
-        y: 0
-        width: 67
+        width: 62
         height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -244,20 +197,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 52568fdf359726eb0800000000000000
-      internalID: -4728083257135438555
+      spriteID: 6cbcbb1ec21cbceb0800000000000000
+      internalID: -4698449387721077818
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_KG_2_5
+      name: Parry_3
       rect:
         serializedVersion: 2
-        x: 531
+        x: 316
         y: 0
-        width: 40
-        height: 62
+        width: 68
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,8 +219,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d500ca172e3f92ff0800000000000000
-      internalID: -60248966097534883
+      spriteID: 6383b033ad5a63b20800000000000000
+      internalID: 3113858548951103542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parry_4
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 0
+        width: 64
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fa4d5000c8f025b0800000000000000
+      internalID: -5395038850066330896
       vertices: []
       indices: 
       edges: []
@@ -286,12 +261,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Attack_KG_2_0: -8345753331616478382
-      Attack_KG_2_1: -5515574048984974227
-      Attack_KG_2_2: -3878741669849815595
-      Attack_KG_2_3: -777060946598943158
-      Attack_KG_2_4: -4728083257135438555
-      Attack_KG_2_5: -60248966097534883
+      Parry_0: -3782302418011684980
+      Parry_1: -7581343843245608386
+      Parry_2: -4698449387721077818
+      Parry_3: 3113858548951103542
+      Parry_4: -5395038850066330896
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

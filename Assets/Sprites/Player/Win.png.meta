@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: e56aa9efb17298d4fb3dc869a9759d9a
+guid: 41a4d6fa7ad293545b02c905edb90a27
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8345753331616478382
-    second: Attack_KG_2_0
+      213: 3302273018506617863
+    second: Win_0
   - first:
-      213: -5515574048984974227
-    second: Attack_KG_2_1
+      213: 954963436607154304
+    second: Win_1
   - first:
-      213: -3878741669849815595
-    second: Attack_KG_2_2
+      213: -4455476159343789129
+    second: Win_2
   - first:
-      213: -777060946598943158
-    second: Attack_KG_2_3
+      213: 6519960470705124959
+    second: Win_3
   - first:
-      213: -4728083257135438555
-    second: Attack_KG_2_4
+      213: 52362372452818622
+    second: Win_4
   - first:
-      213: -60248966097534883
-    second: Attack_KG_2_5
+      213: 3810677228439233811
+    second: Win_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -141,122 +141,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Attack_KG_2_0
+      name: Win_0
       rect:
         serializedVersion: 2
-        x: 19
+        x: 20
         y: 0
-        width: 49
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 25b87f5009ded2c80800000000000000
-      internalID: -8345753331616478382
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_KG_2_1
-      rect:
-        serializedVersion: 2
-        x: 108
-        y: 0
-        width: 60
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d6c33ed00aeb473b0800000000000000
-      internalID: -5515574048984974227
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_KG_2_2
-      rect:
-        serializedVersion: 2
-        x: 212
-        y: 0
-        width: 89
-        height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5d5a8117001fb2ac0800000000000000
-      internalID: -3878741669849815595
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_KG_2_3
-      rect:
-        serializedVersion: 2
-        x: 322
-        y: 0
-        width: 79
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a462425af235735f0800000000000000
-      internalID: -777060946598943158
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_KG_2_4
-      rect:
-        serializedVersion: 2
-        x: 434
-        y: 0
-        width: 67
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 52568fdf359726eb0800000000000000
-      internalID: -4728083257135438555
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_KG_2_5
-      rect:
-        serializedVersion: 2
-        x: 531
-        y: 0
-        width: 40
+        width: 50
         height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -266,8 +156,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d500ca172e3f92ff0800000000000000
-      internalID: -60248966097534883
+      spriteID: 704a17b60d704dd20800000000000000
+      internalID: 3302273018506617863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Win_1
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 19
+        width: 10
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 088a47c9f26b04d00800000000000000
+      internalID: 954963436607154304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Win_2
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 0
+        width: 39
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bb77190a08fa22c0800000000000000
+      internalID: -4455476159343789129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Win_3
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 0
+        width: 35
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f56b7fdf08d8b7a50800000000000000
+      internalID: 6519960470705124959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Win_4
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 0
+        width: 43
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebe95a1ec470ab000800000000000000
+      internalID: 52362372452818622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Win_5
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 0
+        width: 44
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3156acadfbe32e430800000000000000
+      internalID: 3810677228439233811
       vertices: []
       indices: 
       edges: []
@@ -286,12 +286,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Attack_KG_2_0: -8345753331616478382
-      Attack_KG_2_1: -5515574048984974227
-      Attack_KG_2_2: -3878741669849815595
-      Attack_KG_2_3: -777060946598943158
-      Attack_KG_2_4: -4728083257135438555
-      Attack_KG_2_5: -60248966097534883
+      Win_0: 3302273018506617863
+      Win_1: 954963436607154304
+      Win_2: -4455476159343789129
+      Win_3: 6519960470705124959
+      Win_4: 52362372452818622
+      Win_5: 3810677228439233811
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

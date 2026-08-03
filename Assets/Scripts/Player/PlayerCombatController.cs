@@ -12,12 +12,14 @@ public class PlayerCombatController : MonoBehaviour
     PlayerAnimationController animationController;
     PlayerStateMachine playerStateMachine;
     Animator animator;
+    PlayerController2D playerController;
 
     private static readonly int attack1Hash = Animator.StringToHash("Attack1");
     private static readonly int attack2Hash = Animator.StringToHash("Attack2");
     private static readonly int attack3Hash = Animator.StringToHash("Attack3");
     private static readonly int attack4Hash = Animator.StringToHash("Attack4");
     private static readonly int noComboHash = Animator.StringToHash("NoCombo");
+    private static readonly int parryHash = Animator.StringToHash("Parry");
 
     float comboTimer;
     int attackIndex = 1;
@@ -30,6 +32,7 @@ public class PlayerCombatController : MonoBehaviour
         animationController = GetComponent<PlayerAnimationController>();
         playerStateMachine = GetComponent<PlayerStateMachine>();
         animator = GetComponent<Animator>();
+        playerController = GetComponent<PlayerController2D>();
 
     }
 
@@ -41,6 +44,7 @@ public class PlayerCombatController : MonoBehaviour
 
         // subscribe to the attack input action (performed only — canceled is not an attack)
         playerInputActions.Player.Attack.performed += Attack;
+        playerInputActions.Player.Parry.performed += Parry;
 
         playerStateMachine.OnStateChanged += UpdateAnimation;
 
@@ -62,9 +66,9 @@ public class PlayerCombatController : MonoBehaviour
 
         // unsubscribe from the attack input action
         playerInputActions.Player.Attack.performed -= Attack;
+        playerInputActions.Player.Parry.performed -= Parry;
 
         playerStateMachine.OnStateChanged -= UpdateAnimation;
-
 
     }
 
@@ -88,6 +92,8 @@ public class PlayerCombatController : MonoBehaviour
     {
         if (!context.performed) return;
         if (isAttacking) return;
+        if (playerStateMachine.IsLockedState()) return;
+
 
         // tell the Animator that a combo is in progress // Attack → Idle exit transitions (which require NoCombo = true) won't fire.
         animator.SetBool(noComboHash, false);
@@ -112,6 +118,31 @@ public class PlayerCombatController : MonoBehaviour
         }
     }
 
+    private void Parry(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+        if (isAttacking) return;
+        if (CantPerformAction()) return;
+
+        playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Parrying);
+        animator.SetTrigger(parryHash);
+    }
+
+    private bool CantPerformAction()
+    {
+        if (playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Jumping) return true;
+        if (playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Falling) return true;
+        if (playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Landing) return true;
+        if (playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Rolling) return true;
+        if (playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Dashing) return true;
+        // if (playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Attacking) return true;
+        if (playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Parrying) return true;
+        if (playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Hurt) return true;
+        if (playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Dead) return true;
+        if (playerStateMachine.IsLockedState()) return true;
+        return false;
+    }
+
     void OnAttackEnd()
     {
         isAttacking = false;
@@ -133,6 +164,11 @@ public class PlayerCombatController : MonoBehaviour
         // attack (which doesn't flip the sprite because the state is locked).
         animationController.FlipSprite();
 
+        playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Idle);
+    }
+
+    void OnParryEnd()
+    {
         playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Idle);
     }
 

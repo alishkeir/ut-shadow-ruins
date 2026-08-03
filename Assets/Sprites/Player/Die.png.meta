@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: e56aa9efb17298d4fb3dc869a9759d9a
+guid: 64264d23a358c044883eaf8fa9da370a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8345753331616478382
-    second: Attack_KG_2_0
+      213: -1815625823664879899
+    second: Die_0
   - first:
-      213: -5515574048984974227
-    second: Attack_KG_2_1
+      213: 8754631090437682804
+    second: Die_1
   - first:
-      213: -3878741669849815595
-    second: Attack_KG_2_2
+      213: 5542297916538816281
+    second: Die_2
   - first:
-      213: -777060946598943158
-    second: Attack_KG_2_3
+      213: -1778436320341457493
+    second: Die_3
   - first:
-      213: -4728083257135438555
-    second: Attack_KG_2_4
+      213: 2941528559377587764
+    second: Die_4
   - first:
-      213: -60248966097534883
-    second: Attack_KG_2_5
+      213: -6774703673271019300
+    second: Die_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -141,12 +141,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Attack_KG_2_0
+      name: Die_0
       rect:
         serializedVersion: 2
-        x: 19
+        x: 28
         y: 0
-        width: 49
+        width: 41
         height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -156,20 +156,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 25b87f5009ded2c80800000000000000
-      internalID: -8345753331616478382
+      spriteID: 5e6cd67dee99dc6e0800000000000000
+      internalID: -1815625823664879899
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_KG_2_1
+      name: Die_1
       rect:
         serializedVersion: 2
-        x: 108
+        x: 104
         y: 0
-        width: 60
-        height: 61
+        width: 59
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,20 +178,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d6c33ed00aeb473b0800000000000000
-      internalID: -5515574048984974227
+      spriteID: 476f02db792be7970800000000000000
+      internalID: 8754631090437682804
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_KG_2_2
+      name: Die_2
       rect:
         serializedVersion: 2
-        x: 212
+        x: 202
         y: 0
-        width: 89
-        height: 61
+        width: 59
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5d5a8117001fb2ac0800000000000000
-      internalID: -3878741669849815595
+      spriteID: 9170faa37923aec40800000000000000
+      internalID: 5542297916538816281
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_KG_2_3
+      name: Die_3
       rect:
         serializedVersion: 2
-        x: 322
+        x: 307
         y: 0
-        width: 79
-        height: 63
+        width: 66
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,20 +222,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a462425af235735f0800000000000000
-      internalID: -777060946598943158
+      spriteID: ba50566d699b157e0800000000000000
+      internalID: -1778436320341457493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_KG_2_4
+      name: Die_4
       rect:
         serializedVersion: 2
-        x: 434
+        x: 407
         y: 0
-        width: 67
-        height: 60
+        width: 68
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,20 +244,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 52568fdf359726eb0800000000000000
-      internalID: -4728083257135438555
+      spriteID: 43e1e5ec3a862d820800000000000000
+      internalID: 2941528559377587764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_KG_2_5
+      name: Die_5
       rect:
         serializedVersion: 2
-        x: 531
+        x: 507
         y: 0
-        width: 40
-        height: 62
+        width: 68
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,8 +266,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d500ca172e3f92ff0800000000000000
-      internalID: -60248966097534883
+      spriteID: cd8952037ea6bf1a0800000000000000
+      internalID: -6774703673271019300
       vertices: []
       indices: 
       edges: []
@@ -286,12 +286,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Attack_KG_2_0: -8345753331616478382
-      Attack_KG_2_1: -5515574048984974227
-      Attack_KG_2_2: -3878741669849815595
-      Attack_KG_2_3: -777060946598943158
-      Attack_KG_2_4: -4728083257135438555
-      Attack_KG_2_5: -60248966097534883
+      Die_0: -1815625823664879899
+      Die_1: 8754631090437682804
+      Die_2: 5542297916538816281
+      Die_3: -1778436320341457493
+      Die_4: 2941528559377587764
+      Die_5: -6774703673271019300
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

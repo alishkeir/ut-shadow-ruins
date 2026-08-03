@@ -13,6 +13,10 @@ public class PlayerStateMachine : MonoBehaviour
         Rolling,
         Dashing,
         Attacking,
+        Parrying,
+        Hurt,
+        Dead
+
     }
 
     public PlayerState CurrentState { get; private set; }
@@ -41,7 +45,8 @@ public class PlayerStateMachine : MonoBehaviour
     {
         return CurrentState == PlayerState.Rolling
             || CurrentState == PlayerState.Dashing
-            || CurrentState == PlayerState.Attacking;
+            || CurrentState == PlayerState.Attacking
+            || CurrentState == PlayerState.Parrying;
     }
 
     public void SetFacingDirection(float direction)

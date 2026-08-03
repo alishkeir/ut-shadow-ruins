@@ -305,4 +305,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6495fa58a59d674fa414eef1234d3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCombatController
-  comboResetTime: 0.5
+  comboResetTime: 0.2
