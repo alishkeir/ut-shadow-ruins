@@ -144,12 +144,12 @@ TextureImporter:
       name: Win_0
       rect:
         serializedVersion: 2
-        x: 20
+        x: 0
         y: 0
-        width: 50
-        height: 62
+        width: 100
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -163,37 +163,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Win_1
-      rect:
-        serializedVersion: 2
-        x: 124
-        y: 19
-        width: 10
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 088a47c9f26b04d00800000000000000
-      internalID: 954963436607154304
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Win_2
       rect:
         serializedVersion: 2
-        x: 130
+        x: 200
         y: 0
-        width: 39
-        height: 62
+        width: 100
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -210,12 +188,12 @@ TextureImporter:
       name: Win_3
       rect:
         serializedVersion: 2
-        x: 232
+        x: 300
         y: 0
-        width: 35
-        height: 61
+        width: 100
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -232,12 +210,12 @@ TextureImporter:
       name: Win_4
       rect:
         serializedVersion: 2
-        x: 327
+        x: 400
         y: 0
-        width: 43
+        width: 100
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -251,23 +229,23 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Win_5
+      name: Win_1
       rect:
         serializedVersion: 2
-        x: 426
+        x: 100
         y: 0
-        width: 44
-        height: 62
+        width: 100
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3156acadfbe32e430800000000000000
-      internalID: 3810677228439233811
+      spriteID: d2f36b5037f86364cbecd1ba2439e457
+      internalID: 954963436607154304
       vertices: []
       indices: 
       edges: []
@@ -276,7 +254,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d724570b041e2794abc6cd9b24b16b48
     internalID: 0
     vertices: []
     indices: 
@@ -284,14 +262,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":1.0},"gridSpriteSize":{"x":100.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Win_0: 3302273018506617863
       Win_1: 954963436607154304
       Win_2: -4455476159343789129
       Win_3: 6519960470705124959
       Win_4: 52362372452818622
-      Win_5: 3810677228439233811
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -24,22 +24,18 @@ public class PlayerController2D : MonoBehaviour
 
     Rigidbody2D rb;
     PlayerInputActions playerInputActions;
-    PlayerAnimationController animationController;
     PlayerStateMachine playerStateMachine;
-    Animator animator;
 
-    private static readonly int animatorNoComboHash = Animator.StringToHash("NoCombo");
 
     float coyoteTimeCounter;
     float moveAmount;
+    bool grounded;
 
     void Awake()
     {
         playerInputActions = new PlayerInputActions();
         rb = GetComponent<Rigidbody2D>();
-        animationController = GetComponent<PlayerAnimationController>();
         playerStateMachine = GetComponent<PlayerStateMachine>();
-        animator = GetComponent<Animator>();
     }
 
     void OnEnable()
@@ -82,7 +78,7 @@ public class PlayerController2D : MonoBehaviour
     {
 
         // check if the player is on the ground
-        bool grounded = Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundCheckLayerMask);
+        grounded = Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundCheckLayerMask);
 
         // move the player with the current move amount we get from the input system
         if (!playerStateMachine.IsLockedState())
@@ -90,21 +86,11 @@ public class PlayerController2D : MonoBehaviour
             rb.linearVelocity = new Vector2(moveAmount * moveSpeed, rb.linearVelocityY);
         }
 
-        // coyote time
-        // if the player is on the ground, reset the coyote time counter
-        if (grounded)
-        {
-            coyoteTimeCounter = coyoteTime;
-        }
-        // otherwise, decrement the coyote time counter
-        else
-        {
-            coyoteTimeCounter -= Time.fixedDeltaTime;
-        }
+
+
+        HandleCoyoteTime();
 
         HandleMovementStateChange();
-
-        animationController.UpdateMovementAnimation(Mathf.Abs(rb.linearVelocityX), rb.linearVelocityY, grounded);
 
     }
 
@@ -123,7 +109,8 @@ public class PlayerController2D : MonoBehaviour
 
         if (moveAmount != 0)
         {
-            animationController.FlipSprite();
+
+            playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Running);
         }
     }
 
@@ -163,8 +150,8 @@ public class PlayerController2D : MonoBehaviour
 
         if (context.performed)
         {
-            playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Rolling);
             rb.linearVelocity = new Vector2(playerStateMachine.FacingDirection * rollSpeed, rb.linearVelocityY);
+            playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Rolling);
         }
     }
     void Dash(InputAction.CallbackContext context)
@@ -173,8 +160,8 @@ public class PlayerController2D : MonoBehaviour
 
         if (context.performed)
         {
-            playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Dashing);
             rb.linearVelocity = new Vector2(playerStateMachine.FacingDirection * dashSpeed, rb.linearVelocityY);
+            playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Dashing);
         }
     }
 
@@ -186,55 +173,58 @@ public class PlayerController2D : MonoBehaviour
         return false;
     }
 
-    void HandleRollOrDashEnd()
+    void HandleCoyoteTime()
     {
-        // Reset NoCombo so the Any State → Fall transition (which requires NoCombo = true) is allowed to fire while the player is still in the air.
-        animator.SetBool(animatorNoComboHash, true);
 
-        // if the player is still in the air when the roll/dash ends, keep the falling instead of switching to Idle/Running.
-        bool grounded = Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundCheckLayerMask);
-        if (!grounded)
+        // coyote time
+        // if the player is on the ground, reset the coyote time counter
+        if (grounded)
         {
-            playerStateMachine.ChangeState(rb.linearVelocityY > 0
-                ? PlayerStateMachine.PlayerState.Jumping
-                : PlayerStateMachine.PlayerState.Falling);
-            return;
+            coyoteTimeCounter = coyoteTime;
         }
-
-        if (Mathf.Abs(moveAmount) > 0.01f)
-        {
-            playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Running);
-            animationController.UpdateMovementAnimation(moveAmount, rb.linearVelocityY, true);
-
-        }
+        // otherwise, decrement the coyote time counter
         else
         {
-            playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Idle);
-            animationController.UpdateMovementAnimation(0, rb.linearVelocityY, true);
+            coyoteTimeCounter -= Time.fixedDeltaTime;
         }
-
-        animationController.FlipSprite();
     }
-
 
     void HandleMovementStateChange()
     {
+
+
+        playerStateMachine.UpdateMovement(Mathf.Abs(rb.linearVelocityX), rb.linearVelocityY, grounded);
+
         if (playerStateMachine.IsLockedState()) return;
 
-        bool grounded = Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundCheckLayerMask);
 
         if (!grounded)
         {
             playerStateMachine.ChangeState(rb.linearVelocityY > 0 ? PlayerStateMachine.PlayerState.Jumping : PlayerStateMachine.PlayerState.Falling);
+            return;
         }
-        else if (Mathf.Abs(moveAmount) > 0.01f)
+
+        if (Mathf.Abs(rb.linearVelocityX) > 0.01f)
         {
+            playerStateMachine.UpdateMovement(Mathf.Abs(rb.linearVelocityX), rb.linearVelocityY, true);
             playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Running);
+
+
         }
         else
         {
+            playerStateMachine.UpdateMovement(0, rb.linearVelocityY, true);
             playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Idle);
+  
         }
+
+    }
+
+
+    void HandleRollOrDashEnd()
+    {
+        playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Idle);
+        HandleMovementStateChange();
     }
 
 

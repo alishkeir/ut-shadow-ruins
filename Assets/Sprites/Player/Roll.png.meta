@@ -153,221 +153,221 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Rolling_KG_1_0
+      name: Roll_0
       rect:
         serializedVersion: 2
-        x: 29
+        x: 0
         y: 0
-        width: 41
-        height: 57
+        width: 100
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: bb95b5e20216f4b00800000000000000
-      internalID: 814976848421935547
+      spriteID: d655095c260704a47a9bd8e488ab77ce
+      internalID: -1328689376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rolling_KG_1_1
+      name: Roll_1
       rect:
         serializedVersion: 2
-        x: 119
+        x: 100
         y: 0
-        width: 56
-        height: 46
+        width: 100
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7bf37106c9d056100800000000000000
-      internalID: 100501531963899831
+      spriteID: f0962737f2289584399405af0b98071a
+      internalID: -2136875245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rolling_KG_1_2
+      name: Roll_2
       rect:
         serializedVersion: 2
-        x: 218
+        x: 200
         y: 0
-        width: 57
-        height: 46
+        width: 100
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 754cf058b210b00d0800000000000000
-      internalID: -3455667002649099177
+      spriteID: ad6fbf9b3b46fc04582e673fe67c3a55
+      internalID: -1951631770
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rolling_KG_1_3
+      name: Roll_3
       rect:
         serializedVersion: 2
-        x: 326
+        x: 300
         y: 0
-        width: 46
-        height: 46
+        width: 100
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a40edf9f187019dd0800000000000000
-      internalID: -2481193664878092214
+      spriteID: 64c4996169a4eb045b11d73c2c16ab43
+      internalID: 77025643
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rolling_KG_1_4
+      name: Roll_4
       rect:
         serializedVersion: 2
-        x: 429
+        x: 400
         y: 0
-        width: 43
-        height: 33
+        width: 100
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 84aa265603161f0e0800000000000000
-      internalID: -2237900679339136440
+      spriteID: 4dd1c7a6c1b53a6479c9d7d27811fc30
+      internalID: 2136713636
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rolling_KG_1_5
+      name: Roll_5
       rect:
         serializedVersion: 2
-        x: 517
+        x: 500
         y: 0
-        width: 65
-        height: 43
+        width: 100
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 220029ac1425fbea0800000000000000
-      internalID: -5854870548033437662
+      spriteID: 352ba23bfa4c1724eb07281cd9bf383e
+      internalID: 1564951891
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rolling_KG_1_6
+      name: Roll_6
       rect:
         serializedVersion: 2
-        x: 634
+        x: 600
         y: 0
-        width: 35
-        height: 59
+        width: 100
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: dccdf29d8ec7656f0800000000000000
-      internalID: -696231752864113459
+      spriteID: 9a1b68b269a7b2644a2a12d6d4e3526d
+      internalID: 2072365930
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rolling_KG_1_7
+      name: Roll_7
       rect:
         serializedVersion: 2
-        x: 738
+        x: 700
         y: 0
-        width: 38
-        height: 46
+        width: 100
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d87be87cb492df190800000000000000
-      internalID: -7927134363654899827
+      spriteID: 104578f1ce8521f4395fe130e22db2fb
+      internalID: 541026760
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rolling_KG_1_8
+      name: Roll_8
       rect:
         serializedVersion: 2
-        x: 837
+        x: 800
         y: 0
-        width: 40
-        height: 44
+        width: 100
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 59a4b97a92545e940800000000000000
-      internalID: 5324738179643427477
+      spriteID: 4c99af5270ecc47409ea327edda208f1
+      internalID: 1225771206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rolling_KG_1_9
+      name: Roll_9
       rect:
         serializedVersion: 2
-        x: 932
+        x: 900
         y: 0
-        width: 35
-        height: 56
+        width: 100
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: dd8d4f5754c4fd9f0800000000000000
-      internalID: -441550377243584291
+      spriteID: 13d403d101534d34e95edab069f703ac
+      internalID: 644224829
       vertices: []
       indices: 
       edges: []
@@ -376,7 +376,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 83ccb173f5f17f040811c8bba8b2b18b
     internalID: 0
     vertices: []
     indices: 
@@ -384,18 +384,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":1.0},"gridSpriteSize":{"x":100.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Rolling_KG_1_0: 814976848421935547
-      Rolling_KG_1_1: 100501531963899831
-      Rolling_KG_1_2: -3455667002649099177
-      Rolling_KG_1_3: -2481193664878092214
-      Rolling_KG_1_4: -2237900679339136440
-      Rolling_KG_1_5: -5854870548033437662
-      Rolling_KG_1_6: -696231752864113459
-      Rolling_KG_1_7: -7927134363654899827
-      Rolling_KG_1_8: 5324738179643427477
-      Rolling_KG_1_9: -441550377243584291
+      Roll_0: -1328689376
+      Roll_1: -2136875245
+      Roll_2: -1951631770
+      Roll_3: 77025643
+      Roll_4: 2136713636
+      Roll_5: 1564951891
+      Roll_6: 2072365930
+      Roll_7: 541026760
+      Roll_8: 1225771206
+      Roll_9: 644224829
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

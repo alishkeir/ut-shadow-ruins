@@ -135,89 +135,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dashing_KG_1_0
+      name: Dash_0
       rect:
         serializedVersion: 2
-        x: 16
+        x: 0
         y: 0
-        width: 52
-        height: 55
+        width: 100
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0a34be8645ec25650800000000000000
-      internalID: 6220260897284899744
+      spriteID: 6a65f6c0a03a07840892688e6d98538e
+      internalID: -1605479854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dashing_KG_1_1
+      name: Dash_1
       rect:
         serializedVersion: 2
-        x: 119
+        x: 100
         y: 0
-        width: 51
-        height: 54
+        width: 100
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7007b20c216a8a970800000000000000
-      internalID: 8766439274140364807
+      spriteID: f754902759730ce4fb16fccb98496951
+      internalID: 769376596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dashing_KG_1_2
+      name: Dash_2
       rect:
         serializedVersion: 2
-        x: 205
+        x: 200
         y: 0
-        width: 61
-        height: 59
+        width: 100
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7ae4cdd2648181030800000000000000
-      internalID: 3465546602957786791
+      spriteID: 63c391fa40b93ec459be339658e4018e
+      internalID: -941254722
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dashing_KG_1_3
+      name: Dash_3
       rect:
         serializedVersion: 2
-        x: 309
+        x: 300
         y: 0
-        width: 61
-        height: 57
+        width: 100
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c7cad56b17c8eb430800000000000000
-      internalID: 3800629555566062716
+      spriteID: 521af530e3127ce4abf23fedd4a81801
+      internalID: -1865647080
       vertices: []
       indices: 
       edges: []
@@ -226,7 +226,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: bdc5b38fb9a5c7841ad4d41ed37cac67
     internalID: 0
     vertices: []
     indices: 
@@ -234,12 +234,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":1.0},"gridSpriteSize":{"x":100.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Dashing_KG_1_0: 6220260897284899744
-      Dashing_KG_1_1: 8766439274140364807
-      Dashing_KG_1_2: 3465546602957786791
-      Dashing_KG_1_3: 3800629555566062716
+      Dash_0: -1605479854
+      Dash_1: 769376596
+      Dash_2: -941254722
+      Dash_3: -1865647080
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

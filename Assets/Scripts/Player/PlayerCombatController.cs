@@ -7,33 +7,17 @@ public class PlayerCombatController : MonoBehaviour
     [SerializeField] private float comboResetTime = 0.5f;
 
 
-    Rigidbody2D rb;
     PlayerInputActions playerInputActions;
-    PlayerAnimationController animationController;
     PlayerStateMachine playerStateMachine;
-    Animator animator;
-    PlayerController2D playerController;
-
-    private static readonly int attack1Hash = Animator.StringToHash("Attack1");
-    private static readonly int attack2Hash = Animator.StringToHash("Attack2");
-    private static readonly int attack3Hash = Animator.StringToHash("Attack3");
-    private static readonly int attack4Hash = Animator.StringToHash("Attack4");
-    private static readonly int noComboHash = Animator.StringToHash("NoCombo");
-    private static readonly int parryHash = Animator.StringToHash("Parry");
 
     float comboTimer;
-    int attackIndex = 1;
+
     bool isAttacking = false;
 
     void Awake()
     {
         playerInputActions = new PlayerInputActions();
-        rb = GetComponent<Rigidbody2D>();
-        animationController = GetComponent<PlayerAnimationController>();
         playerStateMachine = GetComponent<PlayerStateMachine>();
-        animator = GetComponent<Animator>();
-        playerController = GetComponent<PlayerController2D>();
-
     }
 
 
@@ -82,7 +66,7 @@ public class PlayerCombatController : MonoBehaviour
             }
             else
             {
-                attackIndex = 1;
+                playerStateMachine.SetAttackIndex(1);
             }
         }
     }
@@ -94,28 +78,9 @@ public class PlayerCombatController : MonoBehaviour
         if (isAttacking) return;
         if (playerStateMachine.IsLockedState()) return;
 
-
-        // tell the Animator that a combo is in progress // Attack → Idle exit transitions (which require NoCombo = true) won't fire.
-        animator.SetBool(noComboHash, false);
-
         isAttacking = true;
         playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Attacking);
 
-        switch (attackIndex)
-        {
-            case 1:
-                animator.SetTrigger(attack1Hash);
-                break;
-            case 2:
-                animator.SetTrigger(attack2Hash);
-                break;
-            case 3:
-                animator.SetTrigger(attack3Hash);
-                break;
-            case 4:
-                animator.SetTrigger(attack4Hash);
-                break;
-        }
     }
 
     private void Parry(InputAction.CallbackContext context)
@@ -125,7 +90,6 @@ public class PlayerCombatController : MonoBehaviour
         if (CantPerformAction()) return;
 
         playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Parrying);
-        animator.SetTrigger(parryHash);
     }
 
     private bool CantPerformAction()
@@ -148,21 +112,14 @@ public class PlayerCombatController : MonoBehaviour
         isAttacking = false;
         comboTimer = 0;
 
-        if (attackIndex >= 4)
+        if (playerStateMachine.AttackIndex >= 4)
         {
-            attackIndex = 1;
+            playerStateMachine.SetAttackIndex(1);
         }
         else
         {
-            attackIndex++;
+            playerStateMachine.SetAttackIndex(playerStateMachine.AttackIndex + 1);
         }
-
-        // allow the Animator to leave the attack state back to Idle.
-        animator.SetBool(noComboHash, true);
-
-        // snap the sprite to the latest facing direction set by Move() during the
-        // attack (which doesn't flip the sprite because the state is locked).
-        animationController.FlipSprite();
 
         playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Idle);
     }

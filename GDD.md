@@ -369,20 +369,19 @@ An ancient flying creature protecting the forgotten ruins. The boss constantly m
 
 - **Phase 1:**
   - [x] Build 2D character controller.
-  - [ ] Implement movement mechanics:
+  - [x] Implement movement mechanics:
     - [x] Variable jump height
     - [x] Coyote time
     - [x] Roll
     - [x] Dash
 
 - **Phase 2:**
-  - [ ] Create sword combat system.
-  - [ ] Implement:
-    - [ ] Four-hit combo
-    - [ ] Shield Bash
+  - [x] Create sword combat system.
+  - [ ] Implement combat mechanics:
+    - [x] Four-hit combo
+    - [x] Shield Bash
     - [ ] Hit detection
     - [ ] Damage system
-    - [ ] Enemy reactions
 
 - [ ] **Phase 3:**
   - [ ] Build enemy AI systems.
