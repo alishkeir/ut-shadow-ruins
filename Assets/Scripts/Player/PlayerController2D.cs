@@ -127,16 +127,17 @@ public class PlayerController2D : MonoBehaviour
         }
     }
 
+
+    // variable height jumping
     void Jump(InputAction.CallbackContext context)
     {
-
-        if (playerStateMachine.IsLockedState()) return;
-
-        if (!Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundCheckLayerMask)) return;
-
         // if the player performed the jump action
         if (context.performed)
         {
+            if (playerStateMachine.IsLockedState()) return;
+
+            if (!Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundCheckLayerMask)) return;
+
             // allows the playerto jump after leaving the ground for a short period of time
             if (coyoteTimeCounter <= 0) return;
 
@@ -146,7 +147,7 @@ public class PlayerController2D : MonoBehaviour
 
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
-        // if the player canceled the jump action // released the jump button
+        // if the player canceled the jump action // released the jump button before the jump reaches its maximum height
         if (context.canceled)
         {
             if (rb.linearVelocityY > 0)
