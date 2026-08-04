@@ -7,6 +7,7 @@ using UnityEngine;
 public class EnemyAnimationController : MonoBehaviour
 {
 
+    [SerializeField] private GameObject healthbarCanvas;
 
     private static readonly int speedHash = Animator.StringToHash("Speed");
     private static readonly int attack1Hash = Animator.StringToHash("Attack");
@@ -15,7 +16,6 @@ public class EnemyAnimationController : MonoBehaviour
 
 
     EnemyStateMachine enemyStateMachine;
-    SpriteRenderer enemySprite;
     Animator animator;
 
     private void OnEnable()
@@ -31,7 +31,6 @@ public class EnemyAnimationController : MonoBehaviour
     void Awake()
     {
         enemyStateMachine = GetComponent<EnemyStateMachine>();
-        enemySprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
 
@@ -69,13 +68,20 @@ public class EnemyAnimationController : MonoBehaviour
         }
     }
 
-
+    // rotate the sprite to match the facing direction, so the hitbox with animations is facing the right direction.
+    // also rotate the healthbar canvas again to match the facing direction, so the healthbar is facing the right direction.
     public void FlipSprite()
     {
         if (enemyStateMachine.FacingDirection > 0)
-            enemySprite.flipX = false;
-
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            healthbarCanvas.GetComponent<RectTransform>().localRotation = Quaternion.Euler(0, 0, 0);
+        }
         else if (enemyStateMachine.FacingDirection < 0)
-            enemySprite.flipX = true;
+        {
+            transform.rotation = Quaternion.Euler(0, 180f, 0);
+            healthbarCanvas.GetComponent<RectTransform>().localRotation = Quaternion.Euler(0, 180f, 0);
+
+        }
     }
 }

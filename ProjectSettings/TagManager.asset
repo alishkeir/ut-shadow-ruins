@@ -41,5 +41,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Healthbar
+    uniqueID: 1265656231
+    locked: 0
+  - name: Sprites
+    uniqueID: 238933143
+    locked: 0
   m_RenderingLayers:
   - Default

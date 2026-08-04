@@ -137,12 +137,16 @@ public class PlayerAnimationController : MonoBehaviour
 
 
     // snap the sprite to the latest facing direction set by Move() during the attack (which doesn't flip the sprite because the state is locked).
+    // now it's rotating the sprite to match the facing direction, so the hitbox with animations is facing the right direction.
     public void FlipSprite()
     {
         if (playerStateMachine.FacingDirection > 0)
-            playerSprite.flipX = false;
-
+        {
+            playerSprite.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
         else if (playerStateMachine.FacingDirection < 0)
-            playerSprite.flipX = true;
+        {
+            playerSprite.transform.rotation = Quaternion.Euler(0, 180f, 0);
+        }
     }
 }

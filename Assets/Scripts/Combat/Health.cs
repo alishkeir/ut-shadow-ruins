@@ -1,11 +1,14 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
 
     [SerializeField] private float health = 5f;
     [SerializeField] private float destroyDelay = 3f;
+    [SerializeField] private Image healthBar;
+
     private float currentHealth;
 
     private bool isDead = false;
@@ -29,13 +32,19 @@ public class Health : MonoBehaviour
     void Start()
     {
         currentHealth = health;
+
+        UpdateHealthBar();
     }
 
     public void TakeDamage(float damage)
     {
-        if (isDead) return;
+
 
         currentHealth -= damage;
+        UpdateHealthBar();
+
+
+        if (isDead) return;
 
         TriggerHurt();
 
@@ -44,6 +53,17 @@ public class Health : MonoBehaviour
             TriggerDeath();
         }
 
+    }
+
+    void UpdateHealthBar()
+    {
+        if (healthBar == null) return;
+
+        Debug.Log("Update health bar");
+        Debug.Log(currentHealth);
+        Debug.Log(health);
+        Debug.Log(healthBar.fillAmount);
+        healthBar.fillAmount = currentHealth / health;
     }
 
     void TriggerHurt()
