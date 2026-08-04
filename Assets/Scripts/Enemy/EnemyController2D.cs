@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 
 // base class for all enemy controllers
@@ -14,6 +13,7 @@ public class EnemyController2D : MonoBehaviour
     [Header("Patrol")]
     [SerializeField] private float patrolSpeed = 5f;
     [SerializeField] private float patrolWidth = 20f;
+    [SerializeField] private float patrolWaitTime = 1f;
     [SerializeField] private Transform patrolCheckTransform;
 
     Rigidbody2D rb;
@@ -24,6 +24,9 @@ public class EnemyController2D : MonoBehaviour
 
     private float leftPatrolBoundary;
     private float rightPatrolBoundary;
+
+    private bool isWaitingAtBoundary;
+    private float patrolWaitTimer;
 
 
 
@@ -58,6 +61,9 @@ public class EnemyController2D : MonoBehaviour
             case EnemyStateMachine.EnemyState.Chasing:
                 Chase();
                 break;
+            case EnemyStateMachine.EnemyState.Dead:
+                StopMoving();
+                break;
             default:
                 StopMoving();
                 break;
@@ -68,16 +74,29 @@ public class EnemyController2D : MonoBehaviour
 
     private void Patrol()
     {
-        // flip direction when the enemy reaches a patrol boundary
-        if (patrolDirection > 0 && transform.position.x >= rightPatrolBoundary)
+        // wait at the boundary before turning around
+        if (isWaitingAtBoundary)
         {
-            patrolDirection = -1;
-            enemyStateMachine.SetFacingDirection(-1);
+            StopMoving();
+            patrolWaitTimer -= Time.fixedDeltaTime;
+            if (patrolWaitTimer <= 0f)
+            {
+                isWaitingAtBoundary = false;
+                // flip direction after the wait
+                patrolDirection = -patrolDirection;
+                enemyStateMachine.SetFacingDirection(patrolDirection);
+            }
+            return;
         }
-        else if (patrolDirection < 0 && transform.position.x <= leftPatrolBoundary)
+
+        // start waiting when the enemy reaches a patrol boundary
+        if ((patrolDirection > 0 && transform.position.x >= rightPatrolBoundary) ||
+            (patrolDirection < 0 && transform.position.x <= leftPatrolBoundary))
         {
-            patrolDirection = 1;
-            enemyStateMachine.SetFacingDirection(1);
+            isWaitingAtBoundary = true;
+            patrolWaitTimer = patrolWaitTime;
+            StopMoving();
+            return;
         }
 
         rb.linearVelocity = new Vector2(
@@ -91,7 +110,37 @@ public class EnemyController2D : MonoBehaviour
         rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
     }
 
-    private void Chase() { }
+    private void Chase()
+    {
+        if (!enemyStateMachine.DetectedPlayer) return;
+
+        // if the enemy reaches a patrol boundary while chasing, return to patrol
+        if (transform.position.x <= leftPatrolBoundary || transform.position.x >= rightPatrolBoundary)
+        {
+            StopMoving();
+            // point patrol direction inward so it doesn't immediately walk into the boundary
+            patrolDirection = transform.position.x <= leftPatrolBoundary ? 1 : -1;
+            enemyStateMachine.SetFacingDirection(patrolDirection);
+            isWaitingAtBoundary = false;
+            enemyStateMachine.ChangeState(EnemyStateMachine.EnemyState.Patrolling);
+            return;
+        }
+
+        Vector2 playerPos = enemyStateMachine.DetectedPlayer.transform.position;
+        float xDistance = playerPos.x - transform.position.x;
+
+        // chase immediately as soon as the player is detected, on the X axis only (no vertical follow)
+        if (Mathf.Abs(xDistance) > 0.01f)
+        {
+            int direction = Math.Sign(xDistance);
+            rb.linearVelocity = new Vector2(direction * chaseSpeed, rb.linearVelocityY);
+            enemyStateMachine.SetFacingDirection(direction);
+        }
+        else
+        {
+            StopMoving();
+        }
+    }
 
     // draw gizmos for the ground check // visible only in the editor
     private void OnDrawGizmosSelected()

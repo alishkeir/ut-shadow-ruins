@@ -18,15 +18,19 @@ public class EnemyStateMachine : MonoBehaviour
     }
 
     public EnemyState CurrentState { get; private set; }
+    public GameObject DetectedPlayer { get; private set; }
 
     public float FacingDirection { get; private set; } = 1f;
     public float Speed { get; private set; }
-    public GameObject DetectedPlayer { get; private set; }
+    public float Health { get; private set; }
 
     public event Action<EnemyState> OnStateChanged;
 
     public void ChangeState(EnemyState newState)
     {
+        // once dead, no state changes are allowed — death is terminal
+        if (CurrentState == EnemyState.Dead) return;
+
         if (CurrentState == newState) return;
 
         CurrentState = newState;

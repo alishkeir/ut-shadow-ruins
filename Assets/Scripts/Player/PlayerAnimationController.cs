@@ -24,7 +24,7 @@ public class PlayerAnimationController : MonoBehaviour
     private static readonly int attack4Hash = Animator.StringToHash("Attack4");
     private static readonly int noComboHash = Animator.StringToHash("NoCombo");
     private static readonly int parryHash = Animator.StringToHash("Parry");
-
+    private static readonly int deaththHash = Animator.StringToHash("Die");
 
 
 
@@ -39,6 +39,7 @@ public class PlayerAnimationController : MonoBehaviour
         animator.SetFloat(speedHash, playerStateMachine.Speed);
         animator.SetFloat(velocityYHash, playerStateMachine.VelocityY);
         animator.SetBool(groundedHash, playerStateMachine.Grounded);
+        FlipSprite();
     }
 
     void OnEnable()
@@ -50,8 +51,6 @@ public class PlayerAnimationController : MonoBehaviour
     {
         playerStateMachine.OnStateChanged -= UpdateAnimation;
     }
-
-
 
 
     void UpdateAnimation(PlayerStateMachine.PlayerState state)
@@ -89,6 +88,11 @@ public class PlayerAnimationController : MonoBehaviour
 
             case PlayerStateMachine.PlayerState.Running:
                 FlipSprite();
+                break;
+
+            case PlayerStateMachine.PlayerState.Dead:
+                FlipSprite();
+                animator.SetTrigger(deaththHash);
                 break;
 
         }

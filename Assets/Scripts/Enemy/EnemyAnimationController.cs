@@ -9,10 +9,9 @@ public class EnemyAnimationController : MonoBehaviour
 
 
     private static readonly int speedHash = Animator.StringToHash("Speed");
-    private static readonly int attack1Hash = Animator.StringToHash("Attack1");
-    private static readonly int attack2Hash = Animator.StringToHash("Attack2");
+    private static readonly int attack1Hash = Animator.StringToHash("Attack");
     private static readonly int hurtHash = Animator.StringToHash("Hurt");
-    private static readonly int healthHash = Animator.StringToHash("Health");
+    private static readonly int deathhHash = Animator.StringToHash("Die");
 
 
     EnemyStateMachine enemyStateMachine;
@@ -38,8 +37,17 @@ public class EnemyAnimationController : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        if (enemyStateMachine.CurrentState == EnemyStateMachine.EnemyState.Dead) return;
+
         animator.SetFloat(speedHash, Math.Abs(enemyStateMachine.Speed));
         FlipSprite();
+
+        // keep re-triggering the attack animation as long as the enemy remains in the Attacking state
+        if (enemyStateMachine.CurrentState == EnemyStateMachine.EnemyState.Attacking)
+        {
+            animator.SetTrigger(attack1Hash);
+        }
     }
 
     public void UpdateAnimation(EnemyStateMachine.EnemyState state)
@@ -50,13 +58,14 @@ public class EnemyAnimationController : MonoBehaviour
                 animator.SetTrigger(attack1Hash);
                 break;
             case EnemyStateMachine.EnemyState.Hurt:
+                animator.ResetTrigger(attack1Hash);
                 animator.SetTrigger(hurtHash);
                 break;
             case EnemyStateMachine.EnemyState.Dead:
-                animator.SetTrigger(healthHash);
+                animator.ResetTrigger(attack1Hash);
+                animator.ResetTrigger(hurtHash);
+                animator.SetTrigger(deathhHash);
                 break;
-
-
         }
     }
 

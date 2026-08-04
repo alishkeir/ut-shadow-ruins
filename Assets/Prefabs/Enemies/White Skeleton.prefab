@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2316215339415557687}
   - component: {fileID: 8145451325274128005}
   - component: {fileID: 6624770715694106038}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DetectionPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 6894769495776640933}
   - component: {fileID: 5749422248442976426}
   - component: {fileID: 4290456603328769205}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1
+  m_Radius: 0.4
 --- !u!1 &7153145934953831564
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +179,8 @@ GameObject:
   - component: {fileID: 8381595557189184336}
   - component: {fileID: 3318639463013494242}
   - component: {fileID: 5002185384220376204}
-  m_Layer: 0
+  - component: {fileID: 3489359454228562408}
+  m_Layer: 7
   m_Name: White Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +230,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!70 &6340841316710029844
 CapsuleCollider2D:
@@ -361,9 +362,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab3e3eb648919048a2a373588be8717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController2D
-  chaseSpeed: 5
-  patrolSpeed: 5
+  chaseSpeed: 3.5
+  patrolSpeed: 2
   patrolWidth: 20
+  patrolWaitTime: 1
   patrolCheckTransform: {fileID: 5490417264961805119}
 --- !u!114 &3318639463013494242
 MonoBehaviour:
@@ -389,6 +391,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a668a9dda7518f847b668186a8b11c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAnimationController
+--- !u!114 &3489359454228562408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7153145934953831564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af9876ad0f0acc14d8aaf5e8b48cc64e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  health: 5
+  destroyDelay: 3
 --- !u!1 &8116175167797702043
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +414,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5490417264961805119}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PatrolCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
