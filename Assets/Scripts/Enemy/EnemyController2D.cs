@@ -114,32 +114,28 @@ public class EnemyController2D : MonoBehaviour
     {
         if (!enemyStateMachine.DetectedPlayer) return;
 
-        // if the enemy reaches a patrol boundary while chasing, return to patrol
-        if (transform.position.x <= leftPatrolBoundary || transform.position.x >= rightPatrolBoundary)
+        // just chase — move straight toward the player on the X axis (no vertical follow)
+        Vector2 playerPos = enemyStateMachine.DetectedPlayer.transform.position;
+        int direction = Math.Sign(playerPos.x - transform.position.x);
+
+        // only stop if the enemy is touching a boundary AND trying to move past it
+        // (the player is beyond that boundary). Otherwise keep chasing, even
+        // when starting from a boundary edge, so it can move back inward.
+        if ((direction < 0 && transform.position.x <= leftPatrolBoundary) ||
+            (direction > 0 && transform.position.x >= rightPatrolBoundary))
         {
             StopMoving();
-            // point patrol direction inward so it doesn't immediately walk into the boundary
+            // point patrol direction inward so patrol resumes cleanly if it resumes later
             patrolDirection = transform.position.x <= leftPatrolBoundary ? 1 : -1;
-            enemyStateMachine.SetFacingDirection(patrolDirection);
             isWaitingAtBoundary = false;
-            enemyStateMachine.ChangeState(EnemyStateMachine.EnemyState.Patrolling);
+            enemyStateMachine.SetFacingDirection(patrolDirection);
+            enemyStateMachine.ChangeState(EnemyStateMachine.EnemyState.Idle);
             return;
         }
 
-        Vector2 playerPos = enemyStateMachine.DetectedPlayer.transform.position;
-        float xDistance = playerPos.x - transform.position.x;
-
-        // chase immediately as soon as the player is detected, on the X axis only (no vertical follow)
-        if (Mathf.Abs(xDistance) > 0.01f)
-        {
-            int direction = Math.Sign(xDistance);
-            rb.linearVelocity = new Vector2(direction * chaseSpeed, rb.linearVelocityY);
+        rb.linearVelocity = new Vector2(direction * chaseSpeed, rb.linearVelocityY);
+        if (direction != 0)
             enemyStateMachine.SetFacingDirection(direction);
-        }
-        else
-        {
-            StopMoving();
-        }
     }
 
     // draw gizmos for the ground check // visible only in the editor

@@ -15,12 +15,15 @@ public class DetectionPoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+
+        if (!other.gameObject.CompareTag("Player")) return;
         stateMachine.SetDetectedPlayer(other.gameObject);
         stateMachine.ChangeState(EnemyStateMachine.EnemyState.Chasing);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        if (!other.gameObject.CompareTag("Player")) return;
         stateMachine.SetDetectedPlayer(null);
         stateMachine.ChangeState(EnemyStateMachine.EnemyState.Idle);
 
