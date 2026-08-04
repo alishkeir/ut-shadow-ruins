@@ -53,6 +53,8 @@ public class EnemyController2D : MonoBehaviour
     {
         enemyStateMachine.SetSpeed(rb.linearVelocityX);
 
+        UpdateFacingDirection();
+
         switch (enemyStateMachine.CurrentState)
         {
             case EnemyStateMachine.EnemyState.Patrolling:
@@ -70,6 +72,28 @@ public class EnemyController2D : MonoBehaviour
         }
     }
 
+    // update the facing direction every frame based on the current state
+    // chasing/attacking → face the player, patrolling → face the patrol direction
+    private void UpdateFacingDirection()
+    {
+        switch (enemyStateMachine.CurrentState)
+        {
+            case EnemyStateMachine.EnemyState.Chasing:
+            case EnemyStateMachine.EnemyState.Attacking:
+                if (enemyStateMachine.DetectedPlayer != null)
+                {
+                    int dir = Math.Sign(enemyStateMachine.DetectedPlayer.transform.position.x - transform.position.x);
+                    if (dir != 0)
+                        enemyStateMachine.SetFacingDirection(dir);
+                }
+                break;
+            case EnemyStateMachine.EnemyState.Patrolling:
+                enemyStateMachine.SetFacingDirection(patrolDirection);
+                break;
+            // idle, hurt, dead: keep current facing direction
+        }
+    }
+
 
 
     private void Patrol()
@@ -84,7 +108,6 @@ public class EnemyController2D : MonoBehaviour
                 isWaitingAtBoundary = false;
                 // flip direction after the wait
                 patrolDirection = -patrolDirection;
-                enemyStateMachine.SetFacingDirection(patrolDirection);
             }
             return;
         }
@@ -128,14 +151,11 @@ public class EnemyController2D : MonoBehaviour
             // point patrol direction inward so patrol resumes cleanly if it resumes later
             patrolDirection = transform.position.x <= leftPatrolBoundary ? 1 : -1;
             isWaitingAtBoundary = false;
-            enemyStateMachine.SetFacingDirection(patrolDirection);
-            enemyStateMachine.ChangeState(EnemyStateMachine.EnemyState.Idle);
+            // stay in chasing — facing direction is handled by UpdateFacingDirection()
             return;
         }
 
         rb.linearVelocity = new Vector2(direction * chaseSpeed, rb.linearVelocityY);
-        if (direction != 0)
-            enemyStateMachine.SetFacingDirection(direction);
     }
 
     // draw gizmos for the ground check // visible only in the editor

@@ -26,9 +26,43 @@ public class EnemyStateMachine : MonoBehaviour
 
     public event Action<EnemyState> OnStateChanged;
 
+    // priority order: dead > hurt > attacking > chasing > patrolling > idle
+    // lower priority states can't override higher ones through ChangeState
+    // use ForceChangeState for legit downward transitions like trigger exits
+    public static int GetPriority(EnemyState state)
+    {
+        switch (state)
+        {
+            case EnemyState.Idle: return 0;
+            case EnemyState.Patrolling: return 1;
+            case EnemyState.Chasing: return 2;
+            case EnemyState.Attacking: return 3;
+            case EnemyState.Hurt: return 4;
+            case EnemyState.Dead: return 5;
+            default: return 0;
+        }
+    }
+
     public void ChangeState(EnemyState newState)
     {
         // once dead, no state changes are allowed — death is terminal
+        if (CurrentState == EnemyState.Dead) return;
+
+        if (CurrentState == newState) return;
+
+        // lower priority can't override higher priority
+        if (GetPriority(newState) < GetPriority(CurrentState)) return;
+
+        CurrentState = newState;
+
+        OnStateChanged?.Invoke(CurrentState);
+    }
+
+    // force a state change, bypassing the priority check
+    // used by trigger exits (player leaving a zone) where a downward
+    // transition makes sense. still respects the dead state
+    public void ForceChangeState(EnemyState newState)
+    {
         if (CurrentState == EnemyState.Dead) return;
 
         if (CurrentState == newState) return;

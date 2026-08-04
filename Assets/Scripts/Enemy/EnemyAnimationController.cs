@@ -8,6 +8,7 @@ public class EnemyAnimationController : MonoBehaviour
 {
 
     [SerializeField] private GameObject healthbarCanvas;
+    [SerializeField] private float chaseAnimationSpeed = 1.5f;
 
     private static readonly int speedHash = Animator.StringToHash("Speed");
     private static readonly int attack1Hash = Animator.StringToHash("Attack");
@@ -40,6 +41,7 @@ public class EnemyAnimationController : MonoBehaviour
         if (enemyStateMachine.CurrentState == EnemyStateMachine.EnemyState.Dead) return;
 
         animator.SetFloat(speedHash, Math.Abs(enemyStateMachine.Speed));
+
         FlipSprite();
 
         // keep re-triggering the attack animation as long as the enemy remains in the Attacking state
@@ -51,6 +53,9 @@ public class EnemyAnimationController : MonoBehaviour
 
     public void UpdateAnimation(EnemyStateMachine.EnemyState state)
     {
+        // speed up the animator while chasing to look like running, reset otherwise
+        animator.speed = (state == EnemyStateMachine.EnemyState.Chasing) ? chaseAnimationSpeed : 1f;
+
         switch (state)
         {
             case EnemyStateMachine.EnemyState.Attacking:

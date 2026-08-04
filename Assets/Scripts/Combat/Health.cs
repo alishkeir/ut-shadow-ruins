@@ -113,6 +113,8 @@ public class Health : MonoBehaviour
                 else
                 {
                     col.excludeLayers = LayerMask.GetMask("Player");
+                    col.excludeLayers = LayerMask.GetMask("Enemy");
+
                 }
             }
 
