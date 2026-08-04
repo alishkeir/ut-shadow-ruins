@@ -1,0 +1,567 @@
+fileFormatVersion: 2
+guid: 600ad6516efc2114b863c2edc86f5863
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6042490713863598997
+    second: Skeleton_02_Yellow_Die_0
+  - first:
+      213: -8653227718525550785
+    second: Skeleton_02_Yellow_Die_1
+  - first:
+      213: 3155385424863506491
+    second: Skeleton_02_Yellow_Die_2
+  - first:
+      213: -674626358628437197
+    second: Skeleton_02_Yellow_Die_3
+  - first:
+      213: 3949660019646710409
+    second: Skeleton_02_Yellow_Die_4
+  - first:
+      213: -7160473041301361212
+    second: Skeleton_02_Yellow_Die_5
+  - first:
+      213: 1516129197991770716
+    second: Skeleton_02_Yellow_Die_6
+  - first:
+      213: 1396431600446521433
+    second: Skeleton_02_Yellow_Die_7
+  - first:
+      213: 5256878955406135344
+    second: Skeleton_02_Yellow_Die_8
+  - first:
+      213: 7570236927182131280
+    second: Skeleton_02_Yellow_Die_9
+  - first:
+      213: 4109360048137283678
+    second: Skeleton_02_Yellow_Die_10
+  - first:
+      213: 1026631516188613623
+    second: Skeleton_02_Yellow_Die_11
+  - first:
+      213: 4919535822085820778
+    second: Skeleton_02_Yellow_Die_12
+  - first:
+      213: 5124781626165653857
+    second: Skeleton_02_Yellow_Die_13
+  - first:
+      213: 4519555661614189884
+    second: Skeleton_02_Yellow_Die_14
+  - first:
+      213: 1215319368061604035
+    second: Skeleton_02_Yellow_Die_15
+  - first:
+      213: 7757123346353157236
+    second: Skeleton_02_Yellow_Die_16
+  - first:
+      213: 587588068339670098
+    second: Skeleton_02_Yellow_Die_17
+  - first:
+      213: 3454009938134607331
+    second: Skeleton_02_Yellow_Die_18
+  - first:
+      213: 4150222354680752831
+    second: Skeleton_02_Yellow_Die_19
+  - first:
+      213: -2341197157724155854
+    second: Skeleton_02_Yellow_Die_20
+  - first:
+      213: -4403702316506902664
+    second: Skeleton_02_Yellow_Die_21
+  - first:
+      213: 2278040029795397419
+    second: Skeleton_02_Yellow_Die_22
+  - first:
+      213: 5617534323550871299
+    second: Skeleton_02_Yellow_Die_23
+  - first:
+      213: -8242264845956515364
+    second: Skeleton_02_Yellow_Die_24
+  - first:
+      213: -211605505720126583
+    second: Skeleton_02_Yellow_Die_25
+  - first:
+      213: -7412081072616672999
+    second: Skeleton_02_Yellow_Die_26
+  - first:
+      213: -4599507132154357458
+    second: Skeleton_02_Yellow_Die_27
+  - first:
+      213: -9132031514425045643
+    second: Skeleton_02_Yellow_Die_28
+  - first:
+      213: -8242955416713435854
+    second: Skeleton_02_Yellow_Die_29
+  - first:
+      213: -7225782628762451294
+    second: Skeleton_02_Yellow_Die_30
+  - first:
+      213: 318665649191533597
+    second: Skeleton_02_Yellow_Die_31
+  - first:
+      213: 3807723872961284595
+    second: Skeleton_02_Yellow_Die_32
+  - first:
+      213: 6969432570149552041
+    second: Skeleton_02_Yellow_Die_33
+  - first:
+      213: 2843083402384983917
+    second: Skeleton_02_Yellow_Die_34
+  - first:
+      213: -2692351116593024206
+    second: Skeleton_02_Yellow_Die_35
+  - first:
+      213: 5815323634124449547
+    second: Skeleton_02_Yellow_Die_36
+  - first:
+      213: -3611108039766617252
+    second: Skeleton_02_Yellow_Die_37
+  - first:
+      213: 5413430494633927096
+    second: Skeleton_02_Yellow_Die_38
+  - first:
+      213: -626782886756863071
+    second: Skeleton_02_Yellow_Die_39
+  - first:
+      213: -5754837710911711907
+    second: Skeleton_02_Yellow_Die_40
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Die_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 96
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ea761960590fbc46a30be1e3e25a73b
+      internalID: 1351953622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Die_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 96
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3513e89abe659e14b8d27cf9925d53f2
+      internalID: 1581242706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Die_2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 96
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e85d89099aef54a40b89aa96f9cef220
+      internalID: -1672803368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Die_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 96
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9464ebbe2773cfc42940ceb737dcf410
+      internalID: 1833759494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Die_4
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 96
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2d4441364944d34eb77fd717625adc5
+      internalID: 689283592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Die_5
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 96
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75ee1f9709b35b44489392a806e4c834
+      internalID: 1067029791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Die_6
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 96
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb6baba54cfa0934183a11d3422b9d00
+      internalID: -1052078693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Die_7
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 96
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1433041e475928c4f92c63c0fe2ac73a
+      internalID: 364616157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Die_8
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 96
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 909d5f204eebdce488df982618489b44
+      internalID: 853999056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Die_9
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 96
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8797e29882cba14e847618d041b76f7
+      internalID: 2004654225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Die_10
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 96
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1596604c2fc434e41a656af2ff05da8c
+      internalID: 1669565797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Die_11
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 0
+        width: 96
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0e43b7afee32a84c82c56730784590a
+      internalID: 382866154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Die_12
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 96
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5a16a19fa8b8794aa50c8ecf39fd6d1
+      internalID: 1769882060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 385713a07b19e1a45a5f8993eb177d26
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":13.0,"y":1.0},"gridSpriteSize":{"x":96.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Die_0: 1351953622
+      Die_1: 1581242706
+      Die_10: 1669565797
+      Die_11: 382866154
+      Die_12: 1769882060
+      Die_2: -1672803368
+      Die_3: 1833759494
+      Die_4: 689283592
+      Die_5: 1067029791
+      Die_6: -1052078693
+      Die_7: 364616157
+      Die_8: 853999056
+      Die_9: 2004654225
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
