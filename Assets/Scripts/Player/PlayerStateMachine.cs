@@ -16,7 +16,6 @@ public class PlayerStateMachine : MonoBehaviour
         Parrying,
         Hurt,
         Dead
-
     }
 
     public PlayerState CurrentState { get; private set; }
