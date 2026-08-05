@@ -59,10 +59,7 @@ public class Health : MonoBehaviour
     {
         if (healthBar == null) return;
 
-        Debug.Log("Update health bar");
-        Debug.Log(currentHealth);
-        Debug.Log(health);
-        Debug.Log(healthBar.fillAmount);
+
         healthBar.fillAmount = currentHealth / health;
     }
 

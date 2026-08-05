@@ -11,8 +11,5 @@ public class Hitbox : MonoBehaviour
         {
             health.TakeDamage(damage);
         }
-
-        Debug.Log("Hit!");
-        Debug.Log(other.gameObject.name);
     }
 }
