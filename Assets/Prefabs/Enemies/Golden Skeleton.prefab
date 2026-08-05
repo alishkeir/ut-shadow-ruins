@@ -87,7 +87,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -232,6 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAnimationController
   healthbarCanvas: {fileID: 4395179812385928456}
   chaseAnimationSpeed: 1.5
+  attackCooldown: 1
 --- !u!114 &5454378600820195404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,6 +248,7 @@ MonoBehaviour:
   health: 5
   destroyDelay: 3
   healthBar: {fileID: 8384698208421478253}
+  healthbarCanvas: {fileID: 4395179812385928456}
 --- !u!1 &2346305188886951904
 GameObject:
   m_ObjectHideFlags: 0

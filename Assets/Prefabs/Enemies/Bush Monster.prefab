@@ -393,7 +393,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -411,8 +411,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.012854549, y: -0.16160685}
-  m_Size: {x: 0.487375, y: 0.31679493}
+  m_Offset: {x: -0.012854546, y: -0.13483022}
+  m_Size: {x: 0.48737502, y: 0.3703518}
   m_Direction: 1
 --- !u!212 &7940907109171580598
 SpriteRenderer:
@@ -538,6 +538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAnimationController
   healthbarCanvas: {fileID: 5387297705029110299}
   chaseAnimationSpeed: 1.5
+  attackCooldown: 1
 --- !u!114 &7259875116682824890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,6 +554,7 @@ MonoBehaviour:
   health: 5
   destroyDelay: 3
   healthBar: {fileID: 7008210399628787255}
+  healthbarCanvas: {fileID: 5387297705029110299}
 --- !u!1 &7661703284150965114
 GameObject:
   m_ObjectHideFlags: 0

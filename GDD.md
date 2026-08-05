@@ -377,19 +377,19 @@ An ancient flying creature protecting the forgotten ruins. The boss constantly m
 
 - **Phase 2:**
   - [x] Create sword combat system.
-  - [ ] Implement combat mechanics:
+  - [x] Implement combat mechanics:
     - [x] Four-hit combo
     - [x] Shield Bash
-    - [ ] Hit detection
-    - [ ] Damage system
+    - [x] Hit detection
+    - [x] Damage system
 
-- [ ] **Phase 3:**
-  - [ ] Build enemy AI systems.
-  - [ ] Implement:
-    - [ ] Bush Monster
-    - [ ] White Skeleton
-    - [ ] Golden Skeleton
-    - [ ] AI state machines
+- [x] **Phase 3:**
+  - [x] Build enemy AI systems.
+  - [x] Implement:
+    - [x] Bush Monster
+    - [x] White Skeleton
+    - [x] Golden Skeleton
+    - [x] AI state machines
 
 - **Phase 4:**
   - [ ] Create boss arena.
