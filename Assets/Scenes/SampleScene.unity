@@ -300,6 +300,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4609310604751677670, guid: bec05dbfae0966d4d96f1d6de09b0cbf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4659801657562881403, guid: bec05dbfae0966d4d96f1d6de09b0cbf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.17
@@ -1195,18 +1199,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golden Skeleton
       objectReference: {fileID: 0}
-    - target: {fileID: 3457159848031292326, guid: 92f4d7fb10443b64aab2061484c85ea6, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4091854775293326779, guid: 92f4d7fb10443b64aab2061484c85ea6, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 192
-      objectReference: {fileID: 0}
-    - target: {fileID: 5848027254535920420, guid: 92f4d7fb10443b64aab2061484c85ea6, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8655568078390231605, guid: 92f4d7fb10443b64aab2061484c85ea6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.82
@@ -1444,14 +1436,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1548815897897404268, guid: 23a81262387d85149bc0767f3540e60f, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1799131338739882248, guid: 23a81262387d85149bc0767f3540e60f, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5188667979097424460, guid: 23a81262387d85149bc0767f3540e60f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -23.06
@@ -1495,14 +1479,6 @@ PrefabInstance:
     - target: {fileID: 6076509290013673338, guid: 23a81262387d85149bc0767f3540e60f, type: 3}
       propertyPath: m_Name
       value: Bush Monster
-      objectReference: {fileID: 0}
-    - target: {fileID: 6828597975024151963, guid: 23a81262387d85149bc0767f3540e60f, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6828597975024151963, guid: 23a81262387d85149bc0767f3540e60f, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 192
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

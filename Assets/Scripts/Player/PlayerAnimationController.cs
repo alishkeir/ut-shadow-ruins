@@ -24,7 +24,9 @@ public class PlayerAnimationController : MonoBehaviour
     private static readonly int attack4Hash = Animator.StringToHash("Attack4");
     private static readonly int noComboHash = Animator.StringToHash("NoCombo");
     private static readonly int parryHash = Animator.StringToHash("Parry");
-    private static readonly int deaththHash = Animator.StringToHash("Die");
+    private static readonly int deathHash = Animator.StringToHash("Die");
+    private static readonly int hurtHash = Animator.StringToHash("Hurt");
+
 
 
 
@@ -92,7 +94,12 @@ public class PlayerAnimationController : MonoBehaviour
 
             case PlayerStateMachine.PlayerState.Dead:
                 FlipSprite();
-                animator.SetTrigger(deaththHash);
+                animator.SetTrigger(deathHash);
+                break;
+
+            case PlayerStateMachine.PlayerState.Hurt:
+                FlipSprite();
+                animator.SetTrigger(hurtHash);
                 break;
 
         }
