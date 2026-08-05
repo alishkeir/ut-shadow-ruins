@@ -42,9 +42,6 @@ public class EnemyController2D : MonoBehaviour
         leftPatrolBoundary = patrolCenterX - patrolWidth * 0.5f;
         rightPatrolBoundary = patrolCenterX + patrolWidth * 0.5f;
 
-        Debug.Log("Left: " + leftPatrolBoundary);
-        Debug.Log("Right: " + rightPatrolBoundary);
-        Debug.Log("Center: " + patrolCenterX);
     }
 
 
@@ -90,7 +87,7 @@ public class EnemyController2D : MonoBehaviour
             case EnemyStateMachine.EnemyState.Patrolling:
                 enemyStateMachine.SetFacingDirection(patrolDirection);
                 break;
-            // idle, hurt, dead: keep current facing direction
+                // idle, hurt, dead: keep current facing direction
         }
     }
 
