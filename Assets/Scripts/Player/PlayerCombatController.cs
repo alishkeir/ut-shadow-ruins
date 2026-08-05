@@ -5,12 +5,14 @@ public class PlayerCombatController : MonoBehaviour
 {
 
     [SerializeField] private float comboResetTime = 0.5f;
+    [SerializeField] private float hurtDuration = 0.4f;
 
 
     PlayerInputActions playerInputActions;
     PlayerStateMachine playerStateMachine;
 
     float comboTimer;
+    float hurtTimer;
 
     bool isAttacking = false;
 
@@ -41,6 +43,14 @@ public class PlayerCombatController : MonoBehaviour
         {
             comboTimer = 0;
         }
+
+        // safety net: if we left Attacking without OnAttackEnd firing
+        // (e.g. death overrode the state), clear the flag so the player
+        // isn't locked out of attacking forever
+        if (state != PlayerStateMachine.PlayerState.Attacking && isAttacking)
+        {
+            isAttacking = false;
+        }
     }
 
     void OnDisable()
@@ -58,6 +68,23 @@ public class PlayerCombatController : MonoBehaviour
 
     void Update()
     {
+        // fallback for the hurt state: if the hurt animation event
+        // (OnHurtEnd) hasn't fired for whatever reason, force the
+        // player back to Idle after hurtDuration so they don't get stuck
+        if (playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Hurt)
+        {
+            hurtTimer += Time.deltaTime;
+            if (hurtTimer >= hurtDuration)
+            {
+                hurtTimer = 0;
+                playerStateMachine.ForceChangeState(PlayerStateMachine.PlayerState.Idle);
+            }
+        }
+        else
+        {
+            hurtTimer = 0;
+        }
+
         if (!isAttacking)
         {
             if (comboTimer < comboResetTime)
@@ -121,12 +148,22 @@ public class PlayerCombatController : MonoBehaviour
             playerStateMachine.SetAttackIndex(playerStateMachine.AttackIndex + 1);
         }
 
-        playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Idle);
+        // force the transition back to Idle — ChangeState would block it
+        // because Idle has lower priority than Attacking
+        playerStateMachine.ForceChangeState(PlayerStateMachine.PlayerState.Idle);
     }
 
     void OnParryEnd()
     {
-        playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Idle);
+        // force the transition back to Idle — ChangeState would block it
+        // because Idle has lower priority than Parrying
+        playerStateMachine.ForceChangeState(PlayerStateMachine.PlayerState.Idle);
+    }
+
+    // called by the hurt animation event when it finishes
+    void OnHurtEnd()
+    {
+        playerStateMachine.ForceChangeState(PlayerStateMachine.PlayerState.Idle);
     }
 
 }

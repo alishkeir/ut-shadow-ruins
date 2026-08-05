@@ -198,24 +198,26 @@ public class PlayerController2D : MonoBehaviour
         if (playerStateMachine.IsLockedState()) return;
 
 
+        // use ForceChangeState because landing (Jumping/Falling → Idle/Running)
+        // is a downward transition that ChangeState would block
         if (!grounded)
         {
-            playerStateMachine.ChangeState(rb.linearVelocityY > 0 ? PlayerStateMachine.PlayerState.Jumping : PlayerStateMachine.PlayerState.Falling);
+            playerStateMachine.ForceChangeState(rb.linearVelocityY > 0 ? PlayerStateMachine.PlayerState.Jumping : PlayerStateMachine.PlayerState.Falling);
             return;
         }
 
         if (Mathf.Abs(rb.linearVelocityX) > 0.01f)
         {
             playerStateMachine.UpdateMovement(Mathf.Abs(rb.linearVelocityX), rb.linearVelocityY, true);
-            playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Running);
+            playerStateMachine.ForceChangeState(PlayerStateMachine.PlayerState.Running);
 
 
         }
         else
         {
             playerStateMachine.UpdateMovement(0, rb.linearVelocityY, true);
-            playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Idle);
-  
+            playerStateMachine.ForceChangeState(PlayerStateMachine.PlayerState.Idle);
+   
         }
 
     }
@@ -223,7 +225,9 @@ public class PlayerController2D : MonoBehaviour
 
     void HandleRollOrDashEnd()
     {
-        playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Idle);
+        // force the transition back to Idle — ChangeState would block it
+        // because Idle has lower priority than Rolling/Dashing
+        playerStateMachine.ForceChangeState(PlayerStateMachine.PlayerState.Idle);
         HandleMovementStateChange();
     }
 

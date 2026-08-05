@@ -9,6 +9,7 @@ public class EnemyAnimationController : MonoBehaviour
 
     [SerializeField] private GameObject healthbarCanvas;
     [SerializeField] private float chaseAnimationSpeed = 1.5f;
+    [SerializeField] private float attackCooldown = 1.5f;
 
     private static readonly int speedHash = Animator.StringToHash("Speed");
     private static readonly int attack1Hash = Animator.StringToHash("Attack");
@@ -18,6 +19,9 @@ public class EnemyAnimationController : MonoBehaviour
 
     EnemyStateMachine enemyStateMachine;
     Animator animator;
+
+    float attackTimer;
+    bool isAttackPlaying;
 
     private void OnEnable()
     {
@@ -44,10 +48,21 @@ public class EnemyAnimationController : MonoBehaviour
 
         FlipSprite();
 
-        // keep re-triggering the attack animation as long as the enemy remains in the Attacking state
-        if (enemyStateMachine.CurrentState == EnemyStateMachine.EnemyState.Attacking)
+        // only count the cooldown while in Attacking and no attack animation
+        // is currently playing (OnAttackEnds clears isAttackPlaying)
+        if (enemyStateMachine.CurrentState == EnemyStateMachine.EnemyState.Attacking && !isAttackPlaying)
         {
-            animator.SetTrigger(attack1Hash);
+            attackTimer += Time.fixedDeltaTime;
+            if (attackTimer >= attackCooldown)
+            {
+                attackTimer = 0;
+                isAttackPlaying = true;
+                animator.SetTrigger(attack1Hash);
+            }
+        }
+        else if (enemyStateMachine.CurrentState != EnemyStateMachine.EnemyState.Attacking)
+        {
+            attackTimer = 0;
         }
     }
 
@@ -59,9 +74,17 @@ public class EnemyAnimationController : MonoBehaviour
         switch (state)
         {
             case EnemyStateMachine.EnemyState.Attacking:
+                // fire the first attack immediately, then let FixedUpdate
+                // handle the cooldown for the next ones
+                isAttackPlaying = true;
+                attackTimer = 0;
                 animator.SetTrigger(attack1Hash);
                 break;
             case EnemyStateMachine.EnemyState.Hurt:
+                // if hurt interrupted an attack, OnAttackEnds won't fire,
+                // so clear the playing flag here so the cooldown can restart
+                isAttackPlaying = false;
+                attackTimer = 0;
                 animator.ResetTrigger(attack1Hash);
                 animator.SetTrigger(hurtHash);
                 break;
@@ -88,5 +111,14 @@ public class EnemyAnimationController : MonoBehaviour
             healthbarCanvas.GetComponent<RectTransform>().localRotation = Quaternion.Euler(0, 180f, 0);
 
         }
+    }
+
+    // called by the attack animation event when it ends
+    // clears the playing flag so FixedUpdate can start counting
+    // the cooldown for the next attack
+    public void OnAttackEnds()
+    {
+        isAttackPlaying = false;
+        attackTimer = 0;
     }
 }

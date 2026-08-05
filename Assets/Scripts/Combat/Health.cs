@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
     [SerializeField] private float health = 5f;
     [SerializeField] private float destroyDelay = 3f;
     [SerializeField] private Image healthBar;
+    [SerializeField] private GameObject healthbarCanvas;
 
     private float currentHealth;
 
@@ -38,8 +39,6 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-
-
         currentHealth -= damage;
         UpdateHealthBar();
 
@@ -98,6 +97,7 @@ public class Health : MonoBehaviour
                 rb.bodyType = RigidbodyType2D.Kinematic;
             }
 
+
             // disable only trigger colliders (detection/attack points) so they can't fire anymore
             // keep solid (non-trigger) colliders enabled so the body stays on the ground
             Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
@@ -109,11 +109,14 @@ public class Health : MonoBehaviour
                 }
                 else
                 {
-                    col.excludeLayers = LayerMask.GetMask("Player");
-                    col.excludeLayers = LayerMask.GetMask("Enemy");
-
+                    col.excludeLayers = LayerMask.GetMask("Player", "Enemy");
                 }
             }
+
+            if (healthbarCanvas != null)
+                healthbarCanvas.gameObject.SetActive(false);
+
+
 
             // play the death animation, then destroy the enemy after a delay
             StartCoroutine(DestroyAfterDelay());
