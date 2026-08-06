@@ -84,10 +84,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -95,7 +95,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -241,6 +241,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7370a2c6fd6d29f4e8c1d5ed5e304c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossController2D
+  flySpeed: 3
+  flyCenter: {x: -12.1, y: 6.88}
+  flySize: {x: 18, y: 6}
+  flyPadding: 1
+  pickNewTargetDistance: 0.5
+  summonCooldown: 5
+  startDelay: 3
+  batPrefab: {fileID: 4315809246580652061, guid: 5454087d7161e584ab63f78661224f4b, type: 3}
+  batSpawnPoint: {fileID: 8834328771366872481}
 --- !u!114 &2393526958151877079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,7 +295,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &307196697212285952
 Transform:
   m_ObjectHideFlags: 0

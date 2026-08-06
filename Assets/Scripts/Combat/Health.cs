@@ -17,6 +17,7 @@ public class Health : MonoBehaviour
 
     PlayerStateMachine playerStateMachine;
     EnemyStateMachine enemyStateMachine;
+    BossStateMachine bossStateMachine;
 
     void Awake()
     {
@@ -27,6 +28,10 @@ public class Health : MonoBehaviour
         else if (TryGetComponent(out EnemyStateMachine eStateMachine))
         {
             enemyStateMachine = eStateMachine;
+        }
+        else if (TryGetComponent(out BossStateMachine bStateMachine))
+        {
+            bossStateMachine = bStateMachine;
         }
     }
 
@@ -73,6 +78,10 @@ public class Health : MonoBehaviour
         {
             enemyStateMachine.ChangeState(EnemyStateMachine.EnemyState.Hurt);
         }
+        else if (bossStateMachine != null)
+        {
+            bossStateMachine.ChangeState(BossStateMachine.BossState.Hurt);
+        }
     }
 
     void TriggerDeath()
@@ -89,38 +98,51 @@ public class Health : MonoBehaviour
         {
             enemyStateMachine.ChangeState(EnemyStateMachine.EnemyState.Dead);
 
-            // make the body kinematic so it stays in place and doesn't fall underground
-            Rigidbody2D rb = GetComponent<Rigidbody2D>();
-            if (rb != null)
-            {
-                rb.linearVelocity = Vector2.zero;
-                rb.bodyType = RigidbodyType2D.Kinematic;
-            }
-
-
-            // disable only trigger colliders (detection/attack points) so they can't fire anymore
-            // keep solid (non-trigger) colliders enabled so the body stays on the ground
-            Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
-            foreach (Collider2D col in colliders)
-            {
-                if (col.isTrigger)
-                {
-                    col.enabled = false;
-                }
-                else
-                {
-                    col.excludeLayers = LayerMask.GetMask("Player", "Enemy");
-                }
-            }
-
-            if (healthbarCanvas != null)
-                healthbarCanvas.gameObject.SetActive(false);
-
-
+            HandleDeathPhysics();
 
             // play the death animation, then destroy the enemy after a delay
             StartCoroutine(DestroyAfterDelay());
         }
+        else if (bossStateMachine != null)
+        {
+            bossStateMachine.ChangeState(BossStateMachine.BossState.Dead);
+
+            HandleDeathPhysics();
+
+            // play the death animation, then destroy the boss after a delay
+            StartCoroutine(DestroyAfterDelay());
+        }
+    }
+
+    // shared death logic for enemies and the boss
+    // stop the body, disable trigger colliders, hide the healthbar
+    void HandleDeathPhysics()
+    {
+        // make the body kinematic so it stays in place and doesn't fall underground
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.bodyType = RigidbodyType2D.Kinematic;
+        }
+
+        // disable only trigger colliders (detection/attack points) so they can't fire anymore
+        // keep solid (non-trigger) colliders enabled so the body stays on the ground
+        Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
+        foreach (Collider2D col in colliders)
+        {
+            if (col.isTrigger)
+            {
+                col.enabled = false;
+            }
+            else
+            {
+                col.excludeLayers = LayerMask.GetMask("Player", "Enemy");
+            }
+        }
+
+        if (healthbarCanvas != null)
+            healthbarCanvas.gameObject.SetActive(false);
     }
 
     private IEnumerator DestroyAfterDelay()
