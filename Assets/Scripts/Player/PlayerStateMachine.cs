@@ -25,6 +25,7 @@ public class PlayerStateMachine : MonoBehaviour
     public bool Grounded { get; private set; }
     public float Speed { get; private set; }
     public float VelocityY { get; private set; }
+    public float Health { get; private set; }
 
     public event Action<PlayerState> OnStateChanged;
 
@@ -92,7 +93,8 @@ public class PlayerStateMachine : MonoBehaviour
             || CurrentState == PlayerState.Dashing
             || CurrentState == PlayerState.Attacking
             || CurrentState == PlayerState.Parrying
-            || CurrentState == PlayerState.Hurt;
+            || CurrentState == PlayerState.Hurt
+            || CurrentState == PlayerState.Dead;
     }
 
     public void SetFacingDirection(float direction)
@@ -110,5 +112,10 @@ public class PlayerStateMachine : MonoBehaviour
     public void SetAttackIndex(int index)
     {
         AttackIndex = index;
+    }
+
+    public void SetHealth(float health)
+    {
+        Health = health;
     }
 }

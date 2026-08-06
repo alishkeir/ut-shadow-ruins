@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour
@@ -18,12 +19,18 @@ public class Health : MonoBehaviour
     PlayerStateMachine playerStateMachine;
     EnemyStateMachine enemyStateMachine;
     BossStateMachine bossStateMachine;
+    PlayerInputActions playerInputActions;
+    PlayerCombatController playerCombatController;
+    PlayerController2D playerController2D;
 
     void Awake()
     {
         if (TryGetComponent(out PlayerStateMachine pStateMachine))
         {
             playerStateMachine = pStateMachine;
+            playerInputActions = new PlayerInputActions();
+            playerCombatController = GetComponent<PlayerCombatController>();
+            playerController2D = GetComponent<PlayerController2D>();
         }
         else if (TryGetComponent(out EnemyStateMachine eStateMachine))
         {
@@ -46,6 +53,7 @@ public class Health : MonoBehaviour
     {
         currentHealth -= damage;
         UpdateHealthBar();
+
 
 
         if (isDead) return;
@@ -72,7 +80,7 @@ public class Health : MonoBehaviour
         if (playerStateMachine != null)
         {
             playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Hurt);
-
+            playerStateMachine.SetHealth(currentHealth);
         }
         else if (enemyStateMachine != null)
         {
@@ -92,7 +100,16 @@ public class Health : MonoBehaviour
         if (playerStateMachine != null)
         {
             playerStateMachine.ChangeState(PlayerStateMachine.PlayerState.Dead);
+            playerStateMachine.SetHealth(0);
+            playerInputActions.Player.Disable();
 
+
+            if (playerCombatController != null) playerCombatController.enabled = false;
+            if (playerController2D != null) playerController2D.enabled = false;
+
+            // stop any residual movement so the player doesn't slide after death
+            Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            if (rb != null) rb.linearVelocity = Vector2.zero;
         }
         else if (enemyStateMachine != null)
         {

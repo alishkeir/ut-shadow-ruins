@@ -27,6 +27,10 @@ public class PlayerAnimationController : MonoBehaviour
     private static readonly int deathHash = Animator.StringToHash("Die");
     private static readonly int hurtHash = Animator.StringToHash("Hurt");
 
+    // variables
+    private static readonly int healthHash = Animator.StringToHash("Health");
+
+
 
 
 
@@ -41,6 +45,8 @@ public class PlayerAnimationController : MonoBehaviour
         animator.SetFloat(speedHash, playerStateMachine.Speed);
         animator.SetFloat(velocityYHash, playerStateMachine.VelocityY);
         animator.SetBool(groundedHash, playerStateMachine.Grounded);
+        animator.SetFloat(healthHash, playerStateMachine.Health);
+
         FlipSprite();
     }
 

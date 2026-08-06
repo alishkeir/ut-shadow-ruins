@@ -116,7 +116,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -254,8 +254,7 @@ MonoBehaviour:
   batPrefab: {fileID: 4315809246580652061, guid: 5454087d7161e584ab63f78661224f4b, type: 3}
   batSpawnPoint: {fileID: 8834328771366872481}
   smashSpeed: 15
-  recoverTime: 2
-  smashEndFlySpeed: 8
+  smashIdleTime: 2
   smashEndDuration: 2
   hitboxActiveTime: 1
 --- !u!114 &2393526958151877079
@@ -303,7 +302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &307196697212285952
 Transform:
   m_ObjectHideFlags: 0
@@ -326,7 +325,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3961139557136019599}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -377,7 +376,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead7c10f48711cb46ba06e92d0d6894f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hitbox
-  damage: 2
+  damage: 20
+  parryKnockbackX: 10
+  parryKnockbackY: 2
 --- !u!1 &7341887289291817267
 GameObject:
   m_ObjectHideFlags: 0
