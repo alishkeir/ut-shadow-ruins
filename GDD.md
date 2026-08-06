@@ -161,11 +161,11 @@ The player fights using a one-handed sword and shield. Combat focuses on timing,
 - Defensive ability performed with the shield.
 - If timed correctly:
   - Blocks the incoming attack.
-  - Pushes the enemy backwards.
-  - Creates a short opening for a counter attack.
+  - Blocks half the damage of the Boss attack
+  - Get pushed way after the Boss attack
+
 - If mistimed:
   - The player takes normal damage.
-  - No pushback is applied to the enemy.
 
 ---
 
@@ -394,7 +394,7 @@ An ancient flying creature protecting the forgotten ruins. The boss constantly m
 - **Phase 4:**
   - [ ] Create boss arena.
   - [ ] Implement:
-    - [ ] Guardian boss
+    - [x] Guardian boss
     - [ ] Checkpoints
     - [ ] Save system
     - [ ] Final polish
