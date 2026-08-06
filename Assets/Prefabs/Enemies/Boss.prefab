@@ -70,6 +70,7 @@ Transform:
   m_Children:
   - {fileID: 8834328771366872481}
   - {fileID: 307196697212285952}
+  - {fileID: 7737740684148060243}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &5065969912962001934
@@ -88,13 +89,13 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9884359117542514381b351279f93340, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 72
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 183
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -246,10 +247,17 @@ MonoBehaviour:
   flySize: {x: 18, y: 6}
   flyPadding: 1
   pickNewTargetDistance: 0.5
-  summonCooldown: 5
+  attackCooldown: 5
   startDelay: 3
+  minBats: 2
+  maxBats: 5
   batPrefab: {fileID: 4315809246580652061, guid: 5454087d7161e584ab63f78661224f4b, type: 3}
   batSpawnPoint: {fileID: 8834328771366872481}
+  smashSpeed: 15
+  recoverTime: 2
+  smashEndFlySpeed: 8
+  smashEndDuration: 2
+  hitboxActiveTime: 1
 --- !u!114 &2393526958151877079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,7 +313,7 @@ Transform:
   m_GameObject: {fileID: 3961139557136019599}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.189, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -355,7 +363,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.6, y: 0.1}
   m_EdgeRadius: 0
 --- !u!114 &6618353987946135661
 MonoBehaviour:
@@ -370,3 +378,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hitbox
   damage: 2
+--- !u!1 &7341887289291817267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7737740684148060243}
+  m_Layer: 7
+  m_Name: Ground Check Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7737740684148060243
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7341887289291817267}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3378108494501647478}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

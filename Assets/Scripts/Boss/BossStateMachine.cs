@@ -13,7 +13,8 @@ public class BossStateMachine : MonoBehaviour
         Flying,
         Summoning,
         Smashing,
-        Recovering,
+        SmashIdle,
+        SmashRecover,
         Hurt,
         Dead
     }
@@ -27,7 +28,7 @@ public class BossStateMachine : MonoBehaviour
 
     public event Action<BossState> OnStateChanged;
 
-    // priority order: dead > hurt > smashing/summoning > recovering > flying > idle
+    // priority order: dead > hurt > smashing/summoning > smashidle/smashrecover > flying > idle
     // lower priority states can't override higher ones through ChangeState
     // use ForceChangeState for legit downward transitions like animation ends
     public static int GetPriority(BossState state)
@@ -36,7 +37,8 @@ public class BossStateMachine : MonoBehaviour
         {
             case BossState.Idle: return 0;
             case BossState.Flying: return 1;
-            case BossState.Recovering: return 2;
+            case BossState.SmashRecover: return 2;
+            case BossState.SmashIdle: return 2;
             case BossState.Summoning: return 3;
             case BossState.Smashing: return 3;
             case BossState.Hurt: return 4;
@@ -47,7 +49,7 @@ public class BossStateMachine : MonoBehaviour
 
     public void ChangeState(BossState newState)
     {
-        // once dead, no state changes are allowed — death is terminal
+        // once dead, no state changes are allowed
         if (CurrentState == BossState.Dead) return;
 
         if (CurrentState == newState) return;

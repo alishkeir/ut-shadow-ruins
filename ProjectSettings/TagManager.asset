@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Bat
+  - Ground
   layers:
   - Default
   - TransparentFX

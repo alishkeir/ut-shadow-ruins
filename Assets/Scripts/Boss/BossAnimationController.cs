@@ -4,14 +4,15 @@ using UnityEngine;
 // this script controls the boss animations
 // it listens to the boss state machine and plays the right animation
 // animation events on the boss clips call methods on BossController2D
-// (OnSummonBat, OnSmashImpact, OnRecoverEnd) to do the actual logic
+// (OnSummonBat, OnSummonEnd, OnRecoverEnd, etc) to do the actual logic
 public class BossAnimationController : MonoBehaviour
 {
 
     private static readonly int speedHash = Animator.StringToHash("Speed");
     private static readonly int smashHash = Animator.StringToHash("Smash");
+    private static readonly int smashIdleHash = Animator.StringToHash("SmashIdle");
+    private static readonly int smashEndHash = Animator.StringToHash("SmashEnd");
     private static readonly int summonHash = Animator.StringToHash("Summon");
-    private static readonly int recoverHash = Animator.StringToHash("Recover");
     private static readonly int hurtHash = Animator.StringToHash("Hurt");
     private static readonly int dieHash = Animator.StringToHash("Die");
 
@@ -48,16 +49,23 @@ public class BossAnimationController : MonoBehaviour
     {
         switch (state)
         {
+            // smash start - the dive towards the ground
             case BossStateMachine.BossState.Smashing:
                 animator.SetTrigger(smashHash);
                 break;
 
-            case BossStateMachine.BossState.Summoning:
-                animator.SetTrigger(summonHash);
+            // smash idle - the boss is on the ground
+            case BossStateMachine.BossState.SmashIdle:
+                animator.SetTrigger(smashIdleHash);
                 break;
 
-            case BossStateMachine.BossState.Recovering:
-                animator.SetTrigger(recoverHash);
+            // smash recover - the boss flies back up
+            case BossStateMachine.BossState.SmashRecover:
+                animator.SetTrigger(smashEndHash);
+                break;
+
+            case BossStateMachine.BossState.Summoning:
+                animator.SetTrigger(summonHash);
                 break;
 
             case BossStateMachine.BossState.Hurt:
