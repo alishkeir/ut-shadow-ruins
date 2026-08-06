@@ -116,9 +116,24 @@ public class Bat : MonoBehaviour
         // check if the player is still overlapping the bat
         if (Physics2D.OverlapCircle(transform.position, playerCheckRadius, playerCheckLayerMask))
         {
+
+
             if (player.TryGetComponent(out Health health))
             {
-                health.TakeDamage(explosionDamage);
+
+                if (player.TryGetComponent(out PlayerStateMachine playerStateMachine))
+                {
+                    if (playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Dead
+                    || playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Rolling
+                    || playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Dashing
+                    || playerStateMachine.CurrentState == PlayerStateMachine.PlayerState.Parrying
+                    ) { return; }
+                    else
+                    {
+                        health.TakeDamage(explosionDamage);
+                    }
+                }
+
             }
         }
     }

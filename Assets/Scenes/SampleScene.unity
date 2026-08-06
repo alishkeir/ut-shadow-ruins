@@ -1370,11 +1370,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3832715699169004523, guid: 91148ae9ce5bb8547bc933a18a16f980, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
-      value: 183
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 3832715699169004523, guid: 91148ae9ce5bb8547bc933a18a16f980, type: 3}
       propertyPath: m_IncludeLayers.m_Bits
-      value: 72
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3961139557136019599, guid: 91148ae9ce5bb8547bc933a18a16f980, type: 3}
       propertyPath: m_IsActive
