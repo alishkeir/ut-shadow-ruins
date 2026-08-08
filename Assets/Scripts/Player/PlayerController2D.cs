@@ -217,7 +217,7 @@ public class PlayerController2D : MonoBehaviour
         {
             playerStateMachine.UpdateMovement(0, rb.linearVelocityY, true);
             playerStateMachine.ForceChangeState(PlayerStateMachine.PlayerState.Idle);
-   
+
         }
 
     }
