@@ -105,7 +105,10 @@ public class PlayerStateMachine : MonoBehaviour
     public void UpdateMovement(float speed, float velocityY, bool grounded)
     {
         Speed = speed;
-        VelocityY = velocityY;
+
+        // prevent the velocityY from having a tiny non-zero value
+        // this will ruin the animations and some physics calculations
+        VelocityY = grounded ? 0f : velocityY;
         Grounded = grounded;
     }
 
