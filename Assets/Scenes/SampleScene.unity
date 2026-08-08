@@ -2001,10 +2001,10 @@ TilemapCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 319
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -2024,7 +2024,7 @@ TilemapCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
-  m_ExtrusionFactor: 0.01
+  m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
 --- !u!66 &1064651544
 CompositeCollider2D:
@@ -2039,10 +2039,10 @@ CompositeCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 319
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -2067,49 +2067,33 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 1064651543}
     m_ColliderPaths:
-    - - X: -49899996
-        Y: 19958580
-      - X: -49899996
-        Y: 30041420
-      - X: -49958576
-        Y: 30100000
-      - X: -130041416
-        Y: 30100000
-      - X: -130100000
-        Y: 30041420
-      - X: -130100000
-        Y: 19958580
-      - X: -130041416
-        Y: 19900000
-      - X: -49958576
-        Y: 19900000
-    - - X: 800100032
-        Y: -10041420
-      - X: 800100032
-        Y: 41421
-      - X: 800041408
-        Y: 99999
-      - X: -260041424
-        Y: 99999
-      - X: -260100000
-        Y: 41421
-      - X: -260100000
-        Y: -10041420
-      - X: -260041424
-        Y: -10100000
-      - X: 800041408
-        Y: -10100000
+    - - X: -50000000
+        Y: 30000000
+      - X: -130000000
+        Y: 30000000
+      - X: -130000000
+        Y: 20000000
+      - X: -50000000
+        Y: 20000000
+    - - X: 800000000
+        Y: 0
+      - X: -260000000
+        Y: 0
+      - X: -260000000
+        Y: -10000000
+      - X: 800000000
+        Y: -10000000
   m_CompositePaths:
     m_Paths:
-    - - {x: -4.995887, y: 1.99}
-      - {x: -4.995887, y: 3.01}
-      - {x: -13.01, y: 3.0041127}
-      - {x: -13.004113, y: 1.99}
-    - - {x: 80.00411, y: -1.01}
-      - {x: 80.00411, y: 0.0099999}
-      - {x: -26.01, y: 0.0041126}
-      - {x: -26.004114, y: -1.01}
-  m_VertexDistance: 1
+    - - {x: -5.000029, y: 2}
+      - {x: -5.000029, y: 3}
+      - {x: -13, y: 2.999971}
+      - {x: -12.99997, y: 2}
+    - - {x: 79.99997, y: -1}
+      - {x: 79.99997, y: 0}
+      - {x: -26, y: -0.000029300001}
+      - {x: -25.999971, y: -1}
+  m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 1064651539}
