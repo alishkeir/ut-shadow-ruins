@@ -243,8 +243,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossController2D
   flySpeed: 3
-  flyCenter: {x: -12.1, y: 6.88}
-  flySize: {x: 18, y: 6}
+  flyCenter: {x: 31.1, y: 97.1}
+  flySize: {x: 25, y: 10}
   flyPadding: 1
   pickNewTargetDistance: 0.5
   attackCooldown: 5

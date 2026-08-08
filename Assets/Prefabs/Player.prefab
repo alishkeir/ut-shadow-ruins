@@ -123,6 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hitbox
   damage: 2
+  parryKnockbackX: 10
+  parryKnockbackY: 2
 --- !u!1 &2351173707202265453
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,7 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af9876ad0f0acc14d8aaf5e8b48cc64e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  health: 100
+  health: 10
   destroyDelay: 3
   healthBar: {fileID: 0}
   healthbarCanvas: {fileID: 0}
